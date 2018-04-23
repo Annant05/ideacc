@@ -1,34 +1,49 @@
 <!DOCTYPE html>
 <?php
- 
- 
+	//Complete With basic Functions
 	require 'connectdb.php';
 	session_start();
-	//$rootURL = "http://localhost/acc/";
-	// create a variable
+	
+	//	require 'connectdb.php';
+	//	session_start();
 	if (!empty($_POST)) {
 		$name = $_POST['name'];
 		$email = $_POST['email'];
 		$username = $_POST['username'];
 		$password = md5($_POST['pass']);
-		$proccedToNextPage = false;
-		//Execute the query
-		//$createTable = "CREATE TABLE IF NOT EXISTS users_table(username varchar(15) primary key not null unique,email varchar(30) not null unique,name varchar(30) not null,password varchar(15) primary key not null);";
-		//	mysqli_query($connect,$createTable);
-		if (mysqli_query($connect, "INSERT INTO users_table
-         VALUES ('$username','$email','$name','$password')")) {
+		//	$proccedToNextPage = false;
+		$tbl_name = "users_table";
+		
+		$createUser = "INSERT INTO $tbl_name VALUES ('$username','$email','$name','$password')";
+		//$sql = "SELECT count(*) from $tbl_name WHERE username = '$username' AND password = '$password'";
+		
+		if ($connection->query($createUser)) {
 			$_SESSION['username'] = $username;
-			$proccedToNextPage = true;
+			$_SESSION['name'] = $name;
+			header("Location:" . $rootUrl . "/dashboard/index.php");
 		} else {
-			die('Error: ' . mysqli_error($connect));
-			
+			die('Error: ' . $connection->errno);
 		}
-		//echo $que = mysqli_query($connect,$query);
+		$connection->close();
 	}
-	/*mysqli_close($connect);
-	if ($proccedToNextPage){
-	    header()
-    }*/
+	
+	/*
+		if (!empty($_POST)) {
+			//Execute the query
+			//$createTable = "CREATE TABLE IF NOT EXISTS users_table(username varchar(15) primary key not null unique,email varchar(30) not null unique,name varchar(30) not null,password varchar(15) primary key not null);";
+			//	mysqli_query($connect,$createTable);
+			if (mysqli_query($connect,  {
+				$_SESSION['username'] = $username;
+			$GLOBALS['proccedToNextPage'] = true;
+		} else {
+				die('Error: ' . mysqli_error($connect));
+				
+			}
+			//echo $que = mysqli_query($connect,$query);
+		}
+		mysqli_close($connect);
+		if ($GLOBALS['proccedToNextPage']) {
+	*/
 
 ?>
 

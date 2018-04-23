@@ -1,49 +1,25 @@
 <?php
- //Login module working
- 
+	//Complete With Basic Functions.
+	
 	require 'connectdb.php';
-	//ob_start();
 	session_start();
 	if (!empty($_POST)) {
-		 $username = $_POST['username'];
-		 $_SESSION['username'] = $username;
-		 $password = md5($_POST['pass']);
-		 $tbl_name = "users_table";
-		 $query = "SELECT count(*) from $tbl_name WHERE Username='$username' AND password='$password';";
-		//$check_pass = $temp["Password"];
-		//$sql = "SELECT * FROM $tbl_name WHERE username='$username' and password='$password'";
+		$username = "admin";//$_POST['username'];
+		$password = "admin";//md5($_POST['pass']);
+		$tbl_name = "users_table";
 		
+		$sql = "SELECT count(*) from $tbl_name WHERE username = '$username' AND password = '$password'";
+		$result = $connection->query($sql);
 		
-        $result = mysqli_query($connect, $query) or die(mysqli_error($connect));
-	    //echo "\n The reuslt is = > ". $result;
-        $count = mysqli_num_rows($result);
-		
-		if ($count == 1) {
-			echo $_SESSION['username'] = $username;
-		    header("Location:".$rootUrl. "/dashboard/index.html");
+		if ($result->num_rows == 1) {
+			// output data of each row
+			$_SESSION['username'] = $username;
+			header("Location:" . $rootUrl . "/dashboard/index.php");
 		} else {
-			echo $fmsg = "Invalid Login Credentials.";
+			echo "0 results";
 		}
+		$connection->close();
 	}
-	
-	/*
-//	echo $DB = new PDO("mysql:host=$host;dbname=$database", $username, $password);
-//	echo $res = $DB->query('SELECT count(*) from users_table WHERE Username=\'$username\' AND password=\'$password\';');
-//	echo $num_rows = $res->fetchColumn();
-
-// Mysql_num_row is counting table row
-	//$count = mysql_num_rows($result);
-// If result matched $username and $password, table row must be 1 row
-	if ($num_rows == 1) {
-		echo "Success! $num_rows";
-		//header("Location :".$rootUrl."/dashboard/index.html");
-	} else {
-		echo "Unsuccessful! $num_rows";
-	}
-	
-	//ob_end_flush();
-}*/
-	mysqli_close($connect);
 ?>
 
 <!--  TODO: Image not apperating.-> Add image
