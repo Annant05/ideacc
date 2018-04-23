@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <?php
+ 
+ 
 	require 'connectdb.php';
 	session_start();
-	$rootURL = "http://localhost/acc/";
+	//$rootURL = "http://localhost/acc/";
 	// create a variable
 	if (!empty($_POST)) {
 		$name = $_POST['name'];
@@ -61,11 +63,11 @@
 
 </head>
 <body>
-<a href="test_php.php">GO to next page</a>
+<!--a href="test_php.php">GO to next page</a-->
 <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login100">
-            <form method="post" class="login100-form validate-form p-l-55 p-r-55 p-t-178">
+            <form method="post" class="login100-form validate-form p-l-55 p-r-55 p-t-78">
 					<span class="login100-form-title">
 						Sign up
 					</span>
@@ -98,19 +100,19 @@
                         Username / Password?
                     </a>
                 </div>
-                <button
+                <!--button
                         class="g-recaptcha"
                         data-sitekey="6Lcm61MUAAAAAL-MvfzlwkxGYHpzecraaFWz5yXr"
                         data-callback="YourOnSubmitFn">
 
-                </button>
+                </button-->
 
                 <div class="container-login100-form-btn">
                     <input class="login100-form-btn" type="submit" value="Sign Up">
 
                 </div>
 
-                <div class="flex-col-c p-t-170 p-b-40">
+                <div class="flex-col-c p-t-70 p-b-40">
 						<span class="txt1 p-b-9">
 							Already have account?
 						</span>

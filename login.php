@@ -1,21 +1,48 @@
 <?php
+ //Login module working
+ 
 	require 'connectdb.php';
+	//ob_start();
 	session_start();
-	
 	if (!empty($_POST)) {
-		$username = $_POST['username'];
-		$_SESSION['username'] = $username;
-		$password = md5($_POST['pass']);
-		$count = (mysqli_query($connect, "SELECT count(*) from users_table WHERE Username='$username' AND password='$password';"));
+		 $username = $_POST['username'];
+		 $_SESSION['username'] = $username;
+		 $password = md5($_POST['pass']);
+		 $tbl_name = "users_table";
+		 $query = "SELECT count(*) from $tbl_name WHERE Username='$username' AND password='$password';";
 		//$check_pass = $temp["Password"];
-  
-		if ($count) {//$check_pass == $password) {
-			echo "Welcome $username !!!";
+		//$sql = "SELECT * FROM $tbl_name WHERE username='$username' and password='$password'";
+		
+		
+        $result = mysqli_query($connect, $query) or die(mysqli_error($connect));
+	    //echo "\n The reuslt is = > ". $result;
+        $count = mysqli_num_rows($result);
+		
+		if ($count == 1) {
+			echo $_SESSION['username'] = $username;
+		    header("Location:".$rootUrl. "/dashboard/index.html");
 		} else {
-			echo "Incorrect password ";
-			die('Error: ' . mysqli_error($connect));
+			echo $fmsg = "Invalid Login Credentials.";
 		}
 	}
+	
+	/*
+//	echo $DB = new PDO("mysql:host=$host;dbname=$database", $username, $password);
+//	echo $res = $DB->query('SELECT count(*) from users_table WHERE Username=\'$username\' AND password=\'$password\';');
+//	echo $num_rows = $res->fetchColumn();
+
+// Mysql_num_row is counting table row
+	//$count = mysql_num_rows($result);
+// If result matched $username and $password, table row must be 1 row
+	if ($num_rows == 1) {
+		echo "Success! $num_rows";
+		//header("Location :".$rootUrl."/dashboard/index.html");
+	} else {
+		echo "Unsuccessful! $num_rows";
+	}
+	
+	//ob_end_flush();
+}*/
 	mysqli_close($connect);
 ?>
 
@@ -56,7 +83,7 @@
     <div class="container-login100">
         <div class="wrap-login100">
             <form class="login100-form validate-form p-l-55 p-r-55 p-t-178" method="post">
-					<span class="login100-form-title" style="margin-bottom: 20px">
+					<span class="login100-form-title">
 						Sign In
 					</span>
 
@@ -86,7 +113,7 @@
                     </button>
                 </div>
 
-                <div class="flex-col-c p-t-170 p-b-40">
+                <div class="flex-col-c p-t-120 p-b-40">
 						<span class="txt1 p-b-9">
 							Don’t have an account?
 						</span>
