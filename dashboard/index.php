@@ -156,7 +156,7 @@
             <div class="page-header float-right">
                 <div class="page-title">
                     <ol class="breadcrumb text-right">
-                        <li class="active"><?php echo "Welcome! " . $username ?></li>
+                        <li class="active"><?php echo "Welcome! " . $_SESSION['name'] ;?></li>
                     </ol>
                 </div>
             </div>

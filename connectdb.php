@@ -2,7 +2,8 @@
 // File to Connect to MySql DB
 	
 	//essentials
-	$rootUrl = "http://localhost/ideacc";
+	//$rootUrl = "http://localhost/ideacc";
+	$rootUrl = "http://172.16.16.250/ideacc";
 	$br = "<br>";
 	
 	// all DB related
