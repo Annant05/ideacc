@@ -1,22 +1,21 @@
-<!DOCTYPE html>
 <?php
-	//Complete With basic Functions
+	
 	require 'connectdb.php';
 	session_start();
 	
-	//	require 'connectdb.php';
-	//	session_start();
 	if (!empty($_POST)) {
 		$name = $_POST['name'];
 		$email = $_POST['email'];
 		$username = $_POST['username'];
-		$password = md5($_POST['pass']);
-		//	$proccedToNextPage = false;
+		$password = ($_POST['pass']);
+		$confPass = ($_POST['confPass']);
 		$tbl_name = "users_table";
+		strcmp($password, $confPass);
 		
-		$createUser = "INSERT INTO $tbl_name VALUES ('$username','$email','$name','$password')";
-		//$sql = "SELECT count(*) from $tbl_name WHERE username = '$username' AND password = '$password'";
-		
+		if (!(strcmp($password, $confPass))) {
+			echo $password = md5($password);
+			echo $createUser = "INSERT INTO $tbl_name VALUES ('$username','$email','$name','$password')";
+		}
 		if ($connection->query($createUser)) {
 			$_SESSION['username'] = $username;
 			$_SESSION['name'] = $name;
@@ -26,39 +25,25 @@
 		}
 		$connection->close();
 	}
-	
-	/*
-		if (!empty($_POST)) {
-			//Execute the query
-			//$createTable = "CREATE TABLE IF NOT EXISTS users_table(username varchar(15) primary key not null unique,email varchar(30) not null unique,name varchar(30) not null,password varchar(15) primary key not null);";
-			//	mysqli_query($connect,$createTable);
-			if (mysqli_query($connect,  {
-				$_SESSION['username'] = $username;
-			$GLOBALS['proccedToNextPage'] = true;
-		} else {
-				die('Error: ' . mysqli_error($connect));
-				
-			}
-			//echo $que = mysqli_query($connect,$query);
-		}
-		mysqli_close($connect);
-		if ($GLOBALS['proccedToNextPage']) {
-	*/
 
 ?>
 
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>EduM Sign up</title>
+    <title>Accelerator</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="images/logo.png"/>
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
     <!--===============================================================================================-->
@@ -70,70 +55,85 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="css/util_login.css">
-    <link rel="stylesheet" type="text/css" href="css/main_login.css">
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
     <!--===============================================================================================-->
-
-    <script src='https://www.google.com/recaptcha/api.js'></script>
-
 </head>
 <body>
-<!--a href="test_php.php">GO to next page</a-->
+
 <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login100">
-            <form method="post" class="login100-form validate-form p-l-55 p-r-55 p-t-78">
-					<span class="login100-form-title">
-						Sign up
+            <form class="login100-form validate-form" method="post">
+					<span class="login100-form-title p-b-26">
+						Signup
 					</span>
-
-                <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter Name">
-                    <input class="input100" type="text" name="name" placeholder="Name" required>
-                    <span class="focus-input100"></span>
-                </div>
-                <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter email">
-                    <input class="input100" type="email" name="email" placeholder="Email" required>
-                    <span class="focus-input100"></span>
-                </div>
-                <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
-                    <input class="input100" type="text" name="username" placeholder="Username" required>
-                    <span class="focus-input100"></span>
+                <span class="login100-form-title p-b-48">
+						<i class="zmdi zmdi-font"></i>
+					</span>
+                <!--form id="identicalForm" method="post">
+                    -->
+                <div class="wrap-input100 validate-input">
+                    <input class="input100" type="text" name="name">
+                    <span class="focus-input100" data-placeholder="Name"></span>
                 </div>
 
-                <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter password">
-                    <input class="input100" type="password" name="pass" placeholder="Password" required>
-                    <span class="focus-input100"></span>
+                <div class="wrap-input100 validate-input" data-validate="Incorrect Email">
+                    <input class="input100" type="email" name="email">
+                    <span class="focus-input100" data-placeholder="Email"></span>
                 </div>
 
+                <!--div class="form-group">
+					<label for="sel1">Select Class</label>
+					<select class="form-control" id="sel1">
+						<option>CS</option>
+						<option>IT</option>
+						<option>EC</option>
+						<option>CE</option>
+						<option>ME</option>
+					</select>
+				</div-->
 
-                <div class="text-right p-t-13 p-b-23">
-						<span class="txt1">
-							Forgot
+
+                <div class="wrap-input100 validate-input" data-validate="Incorrect Username">
+                    <input class="input100" type="text" name="username">
+                    <span class="focus-input100" data-placeholder="Username"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Incorrect Passsword">
+						<span class="btn-show-pass">
+							<i class="zmdi zmdi-eye"></i>
 						</span>
-
-                    <a href="#" class="txt2">
-                        Username / Password?
-                    </a>
+                    <input class="input100" type="password" name="pass">
+                    <span class="focus-input100" data-placeholder="Password"></span>
                 </div>
-                <!--button
-                        class="g-recaptcha"
-                        data-sitekey="6Lcm61MUAAAAAL-MvfzlwkxGYHpzecraaFWz5yXr"
-                        data-callback="YourOnSubmitFn">
 
-                </button-->
+                <div class="wrap-input100 validate-input" data-validate="Password do not match!">
+						<span class="btn-show-pass">
+							<i class="zmdi zmdi-eye"></i>
+						</span>
+                    <input class="input100" type="password" name="confPass">
+                    <span class="focus-input100" data-placeholder="Confirm Password"></span>
+                </div>
 
+                <!--div class="g-recaptcha" data-sitekey="6LfoMFUUAAAAAMKfbM5xYJjzB6GWwSuTBeQewQ_F"></div>-->
                 <div class="container-login100-form-btn">
-                    <input class="login100-form-btn" type="submit" value="Sign Up">
-
+                    <div class="wrap-login100-form-btn">
+                        <div class="login100-form-bgbtn"></div>
+                        <button class="login100-form-btn" type="submit">
+                            Sign Me Up!
+                        </button>
+                    </div>
                 </div>
+                <!--/form-->
 
-                <div class="flex-col-c p-t-70 p-b-40">
-						<span class="txt1 p-b-9">
-							Already have account?
+                <div class="text-center p-t-115">
+						<span class="txt1">
+							Already have an account?
 						</span>
 
-                    <a href="login.php" class="txt3">
-                        Login now!
+                    <a class="txt2" href="login.php">
+                        Log In
                     </a>
                 </div>
             </form>
@@ -141,6 +141,30 @@
     </div>
 </div>
 
+
+<!--===============================================================================================-->
+<script>
+    $(document).ready(function () {
+        $('#identicalForm').formValidation({
+            framework: 'bootstrap',
+            icon: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                confirmPassword: {
+                    validators: {
+                        identical: {
+                            field: 'password',
+                            message: 'Passwords do not match!'
+                        }
+                    }
+                }
+            }
+        });
+    });
+</script>
 
 <!--===============================================================================================-->
 <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
