@@ -116,7 +116,7 @@
                     <span class="focus-input100" data-placeholder="Confirm Password"></span>
                 </div>
 
-                <!--div class="g-recaptcha" data-sitekey="6LfoMFUUAAAAAMKfbM5xYJjzB6GWwSuTBeQewQ_F"></div>-->
+                <div class="g-recaptcha" data-sitekey="6LfoMFUUAAAAAMKfbM5xYJjzB6GWwSuTBeQewQ_F"></div>
                 <div class="container-login100-form-btn">
                     <div class="wrap-login100-form-btn">
                         <div class="login100-form-bgbtn"></div>
