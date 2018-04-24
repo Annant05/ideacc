@@ -24,6 +24,7 @@
 	$connection->close();
 	
 	
+	
 	/*
 	if (mysqli_connect_errno())
 	{
@@ -56,6 +57,7 @@
 	//mysqli_close($connect);
 	//mysqli_close($connect);
 
+ 
 ?>
 <html>
 <body>hello</body>

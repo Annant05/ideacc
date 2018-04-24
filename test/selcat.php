@@ -1,6 +1,19 @@
 <?php
 	session_start();
-
+	require '../connectdb.php';
+	$table_query = "select name from subject";
+	$result = $connection->query($table_query);
+	/*
+	if ($result->num_rows > 0) {
+		// output data of each row
+		while ($row = $result->fetch_assoc()) {
+			echo "name Sub:" . $row["name"] . "<br>";
+		}
+	} else {
+		echo "0 results";
+	}
+	*/
+	$connection->close();
 ?>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -17,22 +30,19 @@
 <div id="form_container" style="background-color:white;">
 
     <h1><a>Quiz Upload</a></h1>
-    <form id="form_6060" class="appnitro" style="background-color: white;" method="post" action="">
+    <form id="form_6060" class="appnitro" style="background-color: white;" method="post" action="temp.php">
         <div class="form_description">
             <h2>Quiz Upload</h2>
             <br>
             <h3>Select Category</h3>
-			<?
-				$sql = "SELECT  name FROM subject";
-				$rs = ery($sql);
-			?>
-            <select name="dropDown">
-                <option value="-1">Please select...</option>
-				<? while ($obj = ) { ?>
-                    <option value="<?= $obj->id; ?>" <? if ($data['downDown'] == $obj->id) echo "SELECTED"; ?>>
-						<?= $obj->description; ?>
-                    </option>
-				<? } ?>
+            <select id="sub_cat" name="sub_cat">
+                <?php
+                while ($row = $result->fetch_array()) {
+                echo "<option value='{$row["name"]}'>";
+                echo $row["name"];
+                echo "</option>";
+                }
+                ?>
             </select>
 
 
