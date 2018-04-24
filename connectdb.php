@@ -3,7 +3,7 @@
 	
 	//essentials
 	//$rootUrl = "http://localhost/ideacc";
-	$rootUrl = "http://172.16.16.250/ideacc";
+	$rootUrl = "http://localhost/ideacc";
 	$br = "<br>";
 	
 	// all DB related

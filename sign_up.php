@@ -13,8 +13,8 @@
 		strcmp($password, $confPass);
 		
 		if (!(strcmp($password, $confPass))) {
-			echo $password = md5($password);
-			echo $createUser = "INSERT INTO $tbl_name VALUES ('$username','$email','$name','$password')";
+			$password = md5($password);
+			$createUser = "INSERT INTO $tbl_name VALUES ('$username','$email','$name','$password')";
 		}
 		if ($connection->query($createUser)) {
 			$_SESSION['username'] = $username;
