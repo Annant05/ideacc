@@ -36,13 +36,13 @@
             <br>
             <h3>Select Category</h3>
             <select id="sub_cat" name="sub_cat">
-                <?php
-                while ($row = $result->fetch_array()) {
-                echo "<option value='{$row["name"]}'>";
-                echo $row["name"];
-                echo "</option>";
-                }
-                ?>
+				<?php
+					while ($row = $result->fetch_array()) {
+						echo "<option value='{$row["name"]}'>";
+						echo $row["name"];
+						echo "</option>";
+					}
+				?>
             </select>
 
 
