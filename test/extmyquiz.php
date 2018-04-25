@@ -21,7 +21,7 @@
 				echo "vamos lÃ¡ comeÃ§ar";
 				unset($user);
 				$_SESSION['login'] = 1;
-				header('location:quizelse.php');
+				header('location:extquizelse.php');
 			}
 		}
 		
