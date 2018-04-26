@@ -31,22 +31,22 @@
     </div>
 
     <div>
-        Input Option 1 <input type="text" name="opt_2">
+        Input Option 2 <input type="text" name="opt_2">
         <br>
     </div>
 
     <div>
-        Input Option 1 <input type="text" name="opt_3">
+        Input Option 3 <input type="text" name="opt_3">
         <br>
     </div>
 
     <div>
-        Input Option 1 <input type="text" name="opt_4">
+        Input Option 4 <input type="text" name="opt_4">
         <br>
     </div>
 
     <div>
-        Input Option 1 <input type="text" name="crct_opt">
+        Input Correct Option <input type="text" name="crct_opt">
         <br>
     </div>
 
