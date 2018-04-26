@@ -13,10 +13,17 @@
 		$firstQues->addQuestion($_POST['question']);
 		$firstQues->addOptions($_POST['opt_1'], $_POST['opt_2'], $_POST['opt_3'], $_POST['opt_4']);
 		$firstQues->correctOpt($_POST['crct_opt']);
-		$firstQues->insertIntoDB();
+		//$firstQues->insertIntoDB();
+		$firstQues->getQuestionDB();
 	}
 ?>
+
 <html>
+<body>
+<?php $firstQues->getQuestionDB(); ?>
+</body>
+</html>
+<!--html>
 <body>
 <form method="post">
 
@@ -58,4 +65,4 @@
 
 </form>
 </body>
-</html>
+</html -->

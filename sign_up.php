@@ -1,7 +1,10 @@
 <?php
 	
 	require 'connectdb.php';
+	require 'phpclass/SignUpClass.php';
+	
 	session_start();
+	
 	
 	if (!empty($_POST)) {
 		$name = $_POST['name'];
@@ -12,7 +15,10 @@
 		$tbl_name = "users_table";
 		strcmp($password, $confPass);
 		
-		if (!(strcmp($password, $confPass))) {
+		$signup = new signUpClass($connection);
+		$signup->signUptoDB($name, $username, $email, $password, $confPass);
+		
+		/*if (!(strcmp($password, $confPass))) {
 			$password = md5($password);
 			$createUser = "INSERT INTO $tbl_name VALUES ('$username','$email','$name','$password')";
 		}
@@ -22,7 +28,7 @@
 			header("Location:" . $rootUrl . "/dashboard/index.php");
 		} else {
 			die('Error: ' . $connection->errno);
-		}
+		}*/
 		$connection->close();
 	}
 
