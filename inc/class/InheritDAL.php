@@ -9,7 +9,7 @@
 	// As Of now this DAL is for Login Only
 	
 	
-	class DALQueryResult
+	class InheritDALQueryResult
 	{
 		private $_results = array();
 		
@@ -17,11 +17,13 @@
 		
 		public function __set($name, $value)
 		{
+			// TODO: Implement __set() method.
 			$this->_results[$name] = $value;
 		}
 		
 		public function __get($name)
 		{
+			// TODO: Implement __get() method.
 			if (isset($this->_results[$name])) {
 				return $this->_results[$name];
 			} else {
@@ -32,27 +34,31 @@
 	}
 	
 	
-	class DAL
+	class InheritDAL
 	{
 		public function __construct() { }
 		
-		public function check_for_the_user_in_DB($username, $password)
+		
+		public function insertDataQuery($sql)
 		{
-			/** @noinspection SqlNoDataSourceInspection */
-			/** @noinspection SqlResolve */
-			$sql_user_pass = "SELECT username as username , password as pass,name as name  FROM users_table WHERE username='$username' and password='$password'";
-			///$sql = "SELECT name as name,username as uname FROM users_table"; // Remember Upper Case SELECT and FROM.
-			return $this->query($sql_user_pass);
+			$conn = $this->dbconnect();
+			$res = mysqli_query($conn, $sql);
+			
+			if ($res) {
+				if (strpos($sql, 'INSERT') === false) {   // This is important
+					return true;
+				}
+			} else {
+				if (strpos($sql, 'INSERT') === false) {
+					return false;
+				} else {
+					return null;
+				}
+			}
+			return true;
 		}
 		
-		public function get_question_from_DB($limit_val)
-		{
-			/** @noinspection SqlResolve */
-			$sql_get_question = "SELECT question as ques, option_1 as opt_1,option_2 as opt_2,option_3 as opt_3,option_4 as opt_4,correct_option as cor_opt  FROM questions  limit $limit_val";
-			return $this->query($sql_get_question);
-		}
-		
-		private function query($sql)
+		public function query($sql)
 		{
 			
 			$conn = $this->dbconnect();
@@ -73,7 +79,7 @@
 			$results = array();
 			
 			while ($row = mysqli_fetch_array($res)) {
-				$result = new DALQueryResult();
+				$result = new InheritDALQueryResult();
 				
 				foreach ($row as $k => $v) {
 					$result->$k = $v;
@@ -87,10 +93,11 @@
 		{
 			
 			$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DB)
-			or die("<br/>Could not connect to MySQL server");
-			
+			//or //die("<br/>Could not connect to MySQL server from InheritDAl")
+			or mysqli_connect_errno();
 			return $conn;
 			
 		}
+		
 		
 	}
