@@ -1,16 +1,34 @@
 <?php
-	require 'connectdb.php';
+	//require 'connectdb.php';
+	require_once(dirname(__FILE__) . '/conf/config.php');
 	
 	session_start();
+	$dal = new DAL();
+	
 	if (!empty($_POST)) {
 		$username = $_POST['username'];
 		$password = md5($_POST['pass']);
-		$tbl_name = "users_table";
 		
-		$sql = "SELECT count(*) from $tbl_name WHERE username = '$username' AND password = '$password'";
-		$result = $connection->query($sql);
+		$results = $dal->check_for_the_user_in_DB($username, $password);
+		//echo BR;
+		if ($results) {
+			if (($results[0]->username === $username) && ($results[0]->pass === $password)) {
+				//echo BR . "Evrythin is fine";
+				$_SESSION['name'] = $results[0]->name;
+				header("Location:" . ROOT_URL . "/dashboard/index.php");
+				//$_SESSION['name'] =
+			}
+		} else {
+			echo BR . "Username or Password Wrong";
+		}
 		
-		if ($result->num_rows == 1) {
+	}
+	//$tbl_name = "users_table";
+	
+	//$sql = "SELECT count(*) from $tbl_name WHERE username = '$username' AND password = '$password'";
+	//$result = $connection->query($sql);
+	
+	/*if ($result->num_rows == 1) {
 			// output data of each row
 			$_SESSION['username'] = $username;
 			$get_name = "SELECT name from $tbl_name WHERE username = '$username'";
@@ -31,7 +49,9 @@
 			echo "0 results";
 		}
 		$connection->close();
-	}
+	}*/
+
+
 ?>
 
 
@@ -78,7 +98,7 @@
 					</span>
 
                 <div class="wrap-input100 validate-input" data-validate="Incorrect Username">
-                    <input class="input100" type="text" name="username">
+                    <input class="input100" type="text" name="username" title="username">
                     <span class="focus-input100" data-placeholder="Username"></span>
                 </div>
 
@@ -86,7 +106,7 @@
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-                    <input class="input100" type="password" name="pass">
+                    <input class="input100" type="password" name="pass" title="password">
                     <span class="focus-input100" data-placeholder="Password"></span>
                 </div>
 
