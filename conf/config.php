@@ -10,12 +10,15 @@
 	 */
 	
 	
+	//The Following URL needs to changed when used on local connections
+	$url = 'http://localhost/ideacc';
+	
 	// Database
 	define('DB_HOST', 'localhost');
 	define('DB_USER', 'root');
 	define('DB_PASSWORD', 'root');
 	define('DB_DB', 'users');
 	define('BR', "<BR>");
-	define('ROOT_URL', 'http://localhost/ideacc');
+	define('ROOT_URL', $url);
 
 ?>

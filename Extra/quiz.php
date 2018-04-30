@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<?php
+<!--?php
    $dbhost = 'localhost';
    $dbuser = 'root';
    $dbpass = 'root';
@@ -36,20 +36,20 @@ else {
 
 
 mysqli_close($conn);
-?>
+?-->
 
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Quiz Upload</title>
-<link rel="stylesheet" type="text/css" href="view.css" media="all">
-<script type="text/javascript" src="view.js"></script>
+<link rel="stylesheet" type="text/css" href="../dashboard/view.css" media="all">
+<script type="text/javascript" src="../dashboard/view.js"></script>
 
 </head>
 <body id="main_body" style="background-color:#50F018;" >
 	
-	<img id="top" src="top.png" alt="">
+	<img id="top" src="../dashboard/top.png" alt="">
 	<div id="form_container" style="background-color:#91EE0A;">
 	
 		<h1><a>Quiz Upload</a></h1>
@@ -111,6 +111,6 @@ mysqli_close($conn);
 		</form>	
 		
 	</div>
-	<img id="bottom" src="bottom.png" alt="">
+	<img id="bottom" src="../dashboard/bottom.png" alt="">
 	</body>
 </html>

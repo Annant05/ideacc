@@ -55,7 +55,6 @@
 <body>
 
 
-
 <!-- Right Panel -->
 
 <div id="right-panel" class="right-panel">
@@ -87,12 +86,14 @@
                         <img class="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar">
                     </a>
 
+
+                    <!-- TODO: Drop Down Menu Links not working -->
                     <div class="user-menu dropdown-menu">
-                        <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
+                        <a class="nav-link" href="profile.php"><i class="fa fa- user"></i>My Profile</a>
 
-                        <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
+                        <a class="nav-link" href="settings.php"><i class="fa fa -cog"></i>Settings</a>
 
-                        <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
+                        <a class="nav-link" href="logout.php"><i class="fa fa-power -off"></i>Logout</a>
                     </div>
                 </div>
 
@@ -115,7 +116,7 @@
             <div class="page-header float-right">
                 <div class="page-title">
                     <ol class="breadcrumb text-right">
-                        <li class="active"><?php echo "Welcome! " . $_SESSION['name'] ;?></li>
+                        <li class="active"><?php echo "Welcome! " . $_SESSION['name']; ?></li>
                     </ol>
                 </div>
             </div>
@@ -226,7 +227,7 @@
                     </div>
                 </div>
 
-                <div class="col-sm-6 col-lg-3" >
+                <div class="col-sm-6 col-lg-3">
                     <div class="card text-white bg-flat-color-3">
                         <div class="card-body pb-0">
 

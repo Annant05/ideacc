@@ -96,7 +96,7 @@
 							Don’t have an account?
 						</span>
 
-                    <a class="txt2" href="sign_up.php">
+                    <a class="txt2" href="signup.php">
                         Sign Up
                     </a>
                 </div>
