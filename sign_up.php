@@ -31,6 +31,8 @@
 			$signup = new signUpClass($connection);
 			$signup->signUptoDB($name, $username, $email, $password, $confPass);
 			echo "User : $username Created Successfully";
+			$_SESSION['name'] = $username;
+			header("Location:" . ROOT_URL . "/dashboard/index.php");
 		}
 		
 		$connection->close();
