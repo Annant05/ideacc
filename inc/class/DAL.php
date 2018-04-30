@@ -40,10 +40,20 @@
 		{
 			/** @noinspection SqlNoDataSourceInspection */
 			/** @noinspection SqlResolve */
-			$sql_user_pass = "SELECT username as username , password as pass,name as name  FROM users_table WHERE username='$username' and password='$password'";
+			$sql_user_pass = "SELECT username as username , password as pass,name as name,email as email  FROM users_table WHERE username='$username' and password='$password'";
 			///$sql = "SELECT name as name,username as uname FROM users_table"; // Remember Upper Case SELECT and FROM.
 			return $this->query($sql_user_pass);
 		}
+		
+		public function check_username_email_in_DB($username, $email)
+		{
+			/** @noinspection SqlNoDataSourceInspection */
+			/** @noinspection SqlResolve */
+			$sql_user_email = "SELECT username as username ,email as email  FROM users_table WHERE username='$username' OR email='$email'";
+			///$sql = "SELECT name as name,username as uname FROM users_table"; // Remember Upper Case SELECT and FROM.
+			return $this->query($sql_user_email);
+		}
+		
 		
 		public function get_question_from_DB($limit_val)
 		{
@@ -51,6 +61,7 @@
 			$sql_get_question = "SELECT question as ques, option_1 as opt_1,option_2 as opt_2,option_3 as opt_3,option_4 as opt_4,correct_option as cor_opt  FROM questions  limit $limit_val";
 			return $this->query($sql_get_question);
 		}
+		
 		
 		private function query($sql)
 		{

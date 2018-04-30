@@ -6,18 +6,35 @@
 	 * Time: 11:27 PM
 	 */
 	
-	class signUpClass
+	//require_once('../../connectdb.php');
+	
+	///THis Class is working Fine
+	///
+	
+	
+	class SignUpClass
 	{
 		private $username;
 		private $name;
 		private $email;
 		private $password;
-		private $connection;
+		private $conn;
 		private $table_name = "users_table";
-		
-		public function __construct($connect)
+
+//		private function dbconnect()
+//		{
+//
+//			$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DB)
+//			or die("<br/>Could not connect to MySQL server");
+//
+//			return $conn;
+//
+//		}
+//
+		public function __construct($connection)
 		{
-			$this->connection = $connect;
+			$this->conn = $connection;
+			
 		}
 		
 		public function signUptoDB($name, $username, $email, $password, $checkPass)
@@ -28,33 +45,36 @@
 			$this->password = md5($password);
 			
 			if ($this->isValidPass($this->password, $checkPass)) {
-				//$this->sendToDB();
-				//echo "in true block Check DB";
 				$this->sendToDB();
-			} else {
-				//echo "In false Block Re-enter";
-			}
-			
-		}
-		
-		public function isValidPass($pass, $checkPass)
-		{
-			if (!strcmp($pass, (md5($checkPass)))) {
-				//	echo "PassWord Matches";
 				return true;
 			} else {
-				//echo "passwords Don't match";
 				return false;
 			}
 		}
 		
-		public function sendToDB()
+		private function isValidPass($pass, $checkPass)
 		{
+			if (!strcmp($pass, (md5($checkPass)))) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+		
+		private function sendToDB()
+		{
+			
+			
 			$sql_query = "Insert into $this->table_name
 						  values('$this->username','$this->email','$this->name','$this->password');";
-			$res = $this->connection->query($sql_query);
+			$res = $this->conn->query($sql_query);
 			//echo "Insert Complete";
-			$this->connection->close();
+			$this->conn->close();
+			
 		}
+		
+		//Check For username and email Exists;
+		
+		
 		
 	}

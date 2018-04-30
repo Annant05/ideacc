@@ -1,10 +1,11 @@
 <?php
 	
-	require 'connectdb.php';
-	require 'phpclass/SignUpClass.php';
+	require 'conf/connectdb.php';
+	require 'inc/customclass/SignUpClass.php';
+	require_once(dirname(__FILE__) . '/conf/config.php');
+	
 	
 	session_start();
-	
 	
 	if (!empty($_POST)) {
 		$name = $_POST['name'];
@@ -12,26 +13,28 @@
 		$username = $_POST['username'];
 		$password = ($_POST['pass']);
 		$confPass = ($_POST['confPass']);
-		$tbl_name = "users_table";
-		strcmp($password, $confPass);
 		
-		$signup = new signUpClass($connection);
-		$signup->signUptoDB($name, $username, $email, $password, $confPass);
+		$dal = new DAL();
+		$check_user_email = $dal->check_username_email_in_DB($username, $email);
 		
-		/*if (!(strcmp($password, $confPass))) {
-			$password = md5($password);
-			$createUser = "INSERT INTO $tbl_name VALUES ('$username','$email','$name','$password')";
-		}
-		if ($connection->query($createUser)) {
-			$_SESSION['username'] = $username;
-			$_SESSION['name'] = $name;
-			header("Location:" . $rootUrl . "/dashboard/index.php");
+		if ($check_user_email) {  // Check if user Aleready Exists and notify
+			if (($check_user_email[0]->email === $email) && ($check_user_email[0]->username === $username)) {
+				echo "$username Already Exists with Email: $email ";
+			} else if (($check_user_email[0]->username === $username)) {
+				echo "$username Already Exists";
+			} else if (($check_user_email[0]->email === $email)) {
+				echo "$email Already Exists";
+			} else {
+				echo BR . "UserCan be created";
+			}
 		} else {
-			die('Error: ' . $connection->errno);
-		}*/
+			$signup = new signUpClass($connection);
+			$signup->signUptoDB($name, $username, $email, $password, $confPass);
+			echo "User : $username Created Successfully";
+		}
+		
 		$connection->close();
 	}
-
 ?>
 
 <!DOCTYPE html>

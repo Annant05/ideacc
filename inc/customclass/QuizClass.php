@@ -8,10 +8,23 @@
 	
 	//require '../connectdb.php';
 	
-	require_once('InheritDAL.php');
+	//require_once('../inc/class/InheritDAL.php');
 	
-	class QuestionDB extends InheritDAL
+	class QuizClass
 	{
+		
+		
+		private $br = "<BR>";
+		private $question;
+		private $option_1;
+		private $option_2;
+		private $option_3;
+		private $option_4;
+		private $correct_option;
+		private $connection;
+		private $table_name = "questions";
+		
+		
 		/**
 		 * @return mixed
 		 */
@@ -59,17 +72,6 @@
 		{
 			return $this->correct_option;
 		}
-		
-		
-		private $br = "<BR>";
-		private $question;
-		private $option_1;
-		private $option_2;
-		private $option_3;
-		private $option_4;
-		private $correct_option;
-		private $connection;
-		private $table_name = "questions";
 		
 		
 		public function __construct($conn)

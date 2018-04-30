@@ -23,34 +23,6 @@
 		}
 		
 	}
-	//$tbl_name = "users_table";
-	
-	//$sql = "SELECT count(*) from $tbl_name WHERE username = '$username' AND password = '$password'";
-	//$result = $connection->query($sql);
-	
-	/*if ($result->num_rows == 1) {
-			// output data of each row
-			$_SESSION['username'] = $username;
-			$get_name = "SELECT name from $tbl_name WHERE username = '$username'";
-			$res_name = $connection->query($get_name);
-			
-			
-			if ($res_name->num_rows == 1) {
-				// output data of each row
-				while ($row = $res_name->fetch_assoc()) {
-					$_SESSION['name'] = $row["name"];
-				}
-			} else {
-				echo "0 results";
-			}
-			//$_SESSION['name'] = $name;
-			header("Location:" . $rootUrl . "/dashboard/index.php");
-		} else {
-			echo "0 results";
-		}
-		$connection->close();
-	}*/
-
 
 ?>
 
