@@ -36,6 +36,8 @@
 	{
 		public function __construct() { }
 		
+		//TODO: Always Remeber to Have SELECT AND FROM IN UPPER CASE
+		// Below Are my Methods
 		public function check_for_the_user_in_DB($username, $password)
 		{
 			/** @noinspection SqlNoDataSourceInspection */
@@ -58,10 +60,41 @@
 		public function get_question_from_DB($limit_val)
 		{
 			/** @noinspection SqlResolve */
-			$sql_get_question = "SELECT question as ques, option_1 as opt_1,option_2 as opt_2,option_3 as opt_3,option_4 as opt_4,correct_option as cor_opt  FROM questions  limit $limit_val";
+			$sql_get_question = "SELECT question as ques, option_1 as opt_1,option_2 as opt_2,option_3 as opt_3,option_4 as opt_4,correct_option as cor_opt  FROM questions order by RAND()  limit $limit_val";
 			return $this->query($sql_get_question);
 		}
 		
+		
+		public function get_subject_categories_from_DB()
+		{
+			
+			/** @noinspection SqlResolve */
+			$sql_cat = "SELECT cname as subject from sub_category order by cname asc ";
+			return $this->query($sql_cat);
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		// Do not edit this Block
 		
 		private function query($sql)
 		{
@@ -69,17 +102,21 @@
 			$conn = $this->dbconnect();
 			$res = mysqli_query($conn, $sql);
 			
-			if ($res) {
-				if (strpos($sql, 'SELECT') === false) {   // This is important
-					return true;
-				}
-			} else {
-				if (strpos($sql, 'SELECT') === false) {
-					return false;
-				} else {
-					return null;
-				}
-			}
+			
+			
+			// This Code was maybe For Security  // Not useful for me anyway
+//			if ($res) {
+//				if (strpos($sql, 'SELECT') === false) {   // This is important
+//					return true;
+//				}
+//			} else {
+//				if (strpos($sql, 'SELECT') === false) {
+//					return false;
+//				} else {
+//					return null;
+//				}
+//			}
+//
 			
 			$results = array();
 			

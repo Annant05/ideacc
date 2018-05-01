@@ -11,7 +11,7 @@
 	require_once(dirname(__FILE__) . '../conf/config.php');
 	
 	$dal = new DAL();
-	$question = $dal->get_question_from_DB(1);
+	echo $question = $dal->get_question_from_DB(1);
 	$ques = $question[0]->ques;
 	$opt_A = $question[0]->opt_1;
 	$opt_B = $question[0]->opt_2;

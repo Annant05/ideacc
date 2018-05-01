@@ -58,7 +58,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Quiz Upload</title>
+	<title>Quiz</title>
 	<link rel="stylesheet" type="text/css" href="../dashboard/view.css" media="all">
 	<script type="text/javascript" src="../dashboard/view.js"></script>
 
@@ -66,7 +66,7 @@
 <body id="main_body">
 <div id="form_container">
 	
-	<h1><a>Quiz Upload</a></h1>
+	<h1><a>Quiz </a></h1>
 	<form id="quiz"  method="post" action="">
 		<div class="form_description">
 			<h2>Your Quiz </h2>
