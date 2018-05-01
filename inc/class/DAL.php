@@ -47,6 +47,25 @@
 			return $this->query($sql_user_pass);
 		}
 		
+		public function check_student_in_DB($username, $password)
+		{
+			/** @noinspection SqlNoDataSourceInspection */
+			/** @noinspection SqlResolve */
+			$sql_user_pass = "SELECT username as username , password as pass,name as name,email as email  FROM students WHERE username='$username' and password='$password'";
+			///$sql = "SELECT name as name,username as uname FROM users_table"; // Remember Upper Case SELECT and FROM.
+			return $this->query($sql_user_pass);
+		}
+		
+		public function check_instructor_in_DB($username, $password)
+		{
+			/** @noinspection SqlNoDataSourceInspection */
+			/** @noinspection SqlResolve */
+			$sql_user_pass = "SELECT username as username , password as pass,name as name,email as email  FROM instructor WHERE username='$username' and password='$password'";
+			///$sql = "SELECT name as name,username as uname FROM users_table"; // Remember Upper Case SELECT and FROM.
+			return $this->query($sql_user_pass);
+		}
+		
+		
 		public function check_username_email_in_DB($username, $email, $usertype)
 		{
 			$table_name = null;

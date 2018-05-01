@@ -8,8 +8,18 @@
 	if (!empty($_POST)) {
 		$username = $_POST['username'];
 		$password = md5($_POST['pass']);
+		$usertype = $_POST['usertype'];
 		
-		$results = $dal->check_for_the_user_in_DB($username, $password);
+		
+		if ($usertype === "student") {
+			$results = $dal->check_student_in_DB($username, $password);
+		} else if ($usertype === "instructor") {
+			$results = $dal->check_instructor_in_DB($username,$password);
+		} else {
+			echo "Something went Wrong in Signup.php";
+		}
+		
+		
 		//echo BR;
 		if ($results) {
 			if (($results[0]->username === $username) && ($results[0]->pass === $password)) {
@@ -80,6 +90,12 @@
 						</span>
                     <input class="input100" type="password" name="pass" title="password">
                     <span class="focus-input100" data-placeholder="Password"></span>
+                </div>
+
+                <div>
+                    <label> <input type='radio' name='usertype' value='student' required> Student</label>
+                    <label> <input style="margin-left: 20px" type='radio' name='usertype' value='instructor' required>
+                        Instructor </label>
                 </div>
 
                 <div class="container-login100-form-btn">
