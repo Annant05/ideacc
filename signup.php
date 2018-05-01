@@ -10,34 +10,43 @@
 		$name = $_POST['name'];
 		$email = $_POST['email'];
 		$username = $_POST['username'];
-		$password = ($_POST['pass']);
-		$confPass = ($_POST['confPass']);
+		$password = md5($_POST['pass']);
+		$confPass = md5($_POST['confPass']);
 		$usertype = $_POST['usertype'];
 		$section = $_POST['section'];
 		
-		$dal = new DAL();
-		$check_user_email = $dal->check_username_email_in_DB($username, $email, $usertype);
+		//$dal = new DAL();
+		//$check_user_email = $dal->check_username_email_in_DB($username, $email, $usertype);
+
+//		if ($check_user_email) {  // Check if user Aleready Exists and notify
+//			if (($check_user_email[0]->email === $email) && ($check_user_email[0]->username === $username)) {
+//				echo "$username Already Exists with Email: $email ";
+//			} else if (($check_user_email[0]->username === $username)) {
+//				echo "$username Already Exists";
+//			} else if (($check_user_email[0]->email === $email)) {
+//				echo "$email Already Exists";
+//			} else {
+//				echo BR . "UserCan be created";
+//			}
+//		} else {
+		$signup = new signUpClass($connection);
+		//if ($this->usertype === "student") {
+		//		$signup->setStudentSection($section);
+		//	}
 		
-		if ($check_user_email) {  // Check if user Aleready Exists and notify
-			if (($check_user_email[0]->email === $email) && ($check_user_email[0]->username === $username)) {
-				echo "$username Already Exists with Email: $email ";
-			} else if (($check_user_email[0]->username === $username)) {
-				echo "$username Already Exists";
-			} else if (($check_user_email[0]->email === $email)) {
-				echo "$email Already Exists";
-			} else {
-				echo BR . "UserCan be created";
-			}
+		//$signup->signUptoDB($name, $username, $email, $password, $confPass, $usertype);
+		
+		if ($usertype === "student") {
+			$signup->signUpStudent($name, $username, $email, $password, $confPass, $section);
+		} else if ($usertype === "instructor") {
+			$signup->signUpInstructor($name, $username, $email, $password, $confPass);
 		} else {
-			$signup = new signUpClass($connection);
-			if ($this->usertype === "student") {
-				$signup->setStudentSection($section);
-			}
-			$signup->signUptoDB($name, $username, $email, $password, $confPass, $usertype);
-			echo "User : $username Created Successfully";
-			$_SESSION['name'] = $username;
-			//sheader("Location:" . ROOT_URL . "/dashboard/index_ins.php");
+			echo "Something went Wrong in Signup.php";
 		}
+		echo "User : $username Created Successfully";
+		$_SESSION['name'] = $username;
+		//sheader("Location:" . ROOT_URL . "/dashboard/index_ins.php");
+		//}
 		$connection->close();
 	}
 

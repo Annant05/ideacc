@@ -21,7 +21,7 @@
 		private $conn;
 		//	private $table_name = "users_table";
 		private $usertype;
-		private $section;
+		private $section = null;
 
 //		private function dbconnect()
 //		{
@@ -69,33 +69,61 @@
 				return false;
 			}
 		}
+
+
+//		private function sendToDB()
+//		{
+//			$sql_query = null;
+//			if ($this->usertype === "student") {
+//				/** @noinspection SqlResolve */
+//				$sql_query = "Insert into students
+//				values('$this->username','$this->email','$this->name','$this->password','$this->section');";
+//			} else if ($this->usertype === "instructor") {
+//				/** @noinspection SqlResolve */
+//				$sql_query = "Insert into instructor
+//						  values('$this->username','$this->email','$this->name','$this->password');";
+//			} else {
+//				echo "unknown UserType";
+//			}
+//
+//			/*	$sql_query = "Insert into $this->table_name
+//							  values('$this->username','$this->email','$this->name','$this->password');";
+//			*/    //
+//			$res = $this->conn->query($sql_query);
+//			echo "Insert Complete";
+//			$this->conn->close();
+//
+//		}
 		
 		
-		private function sendToDB()
+		public function signUpInstructor($name, $username, $email, $password, $checkPass)
 		{
-			$sql_query = null;
-			if ($this->usertype === "student") {
-				/** @noinspection SqlResolve */
-				$sql_query = "Insert into students
-				values('$this->username','$this->email','$this->name','$this->password','$this->section');";
-			} else if ($this->usertype === "instructor") {
-				/** @noinspection SqlResolve */
-				$sql_query = "Insert into instructor
-						  values('$this->username','$this->email','$this->name','$this->password');";
+			$sql_query = "Insert into instructor values('$username','$email','$name','$password')";
+			
+			if ($password === $checkPass) {
+				//Check For username and email Exists;
+				$res = $this->conn->query($sql_query);
+				echo "Insert Complete Instructor";
 			} else {
-				echo "unknown UserType";
+				echo "Something went wrong while inserting in INSTRUCTOR";
 			}
-			
-			/*	$sql_query = "Insert into $this->table_name
-							  values('$this->username','$this->email','$this->name','$this->password');";
-			*/    //
-			$res = $this->conn->query($sql_query);
-			echo "Insert Complete";
 			$this->conn->close();
-			
 		}
 		
-		//Check For username and email Exists;
+		
+		public function signUpStudent($name, $username, $email, $password, $checkPass, $section)
+		{
+			$sql_query = "Insert into students values('$username','$email','$name','$password','$section')";
+			
+			if ($password === $checkPass) {
+				//Check For username and email Exists;
+				$res = $this->conn->query($sql_query);
+				echo "Insert Complete Student";
+			} else {
+				echo "Something went Wrong in Sign Up student";
+			}
+			$this->conn->close();
+		}
 		
 		
-	}
+	}//end Classs
