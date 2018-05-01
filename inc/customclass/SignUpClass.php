@@ -19,7 +19,9 @@
 		private $email;
 		private $password;
 		private $conn;
-		private $table_name = "users_table";
+		//	private $table_name = "users_table";
+		private $usertype;
+		private $section;
 
 //		private function dbconnect()
 //		{
@@ -37,12 +39,13 @@
 			
 		}
 		
-		public function signUptoDB($name, $username, $email, $password, $checkPass)
+		public function signUptoDB($name, $username, $email, $password, $checkPass, $usertype)
 		{
 			$this->name = $name;
 			$this->username = $username;
 			$this->email = $email;
 			$this->password = md5($password);
+			$this->usertype = $usertype;
 			
 			if ($this->isValidPass($this->password, $checkPass)) {
 				$this->sendToDB();
@@ -50,6 +53,12 @@
 			} else {
 				return false;
 			}
+			
+		}
+		
+		public function setStudentSection($section)
+		{
+			$this->section = $section;
 		}
 		
 		private function isValidPass($pass, $checkPass)
@@ -61,20 +70,32 @@
 			}
 		}
 		
+		
 		private function sendToDB()
 		{
-			
-			
-			$sql_query = "Insert into $this->table_name
+			$sql_query = null;
+			if ($this->usertype === "student") {
+				/** @noinspection SqlResolve */
+				$sql_query = "Insert into students
+				values('$this->username','$this->email','$this->name','$this->password','$this->section');";
+			} else if ($this->usertype === "instructor") {
+				/** @noinspection SqlResolve */
+				$sql_query = "Insert into instructor
 						  values('$this->username','$this->email','$this->name','$this->password');";
+			} else {
+				echo "unknown UserType";
+			}
+			
+			/*	$sql_query = "Insert into $this->table_name
+							  values('$this->username','$this->email','$this->name','$this->password');";
+			*/    //
 			$res = $this->conn->query($sql_query);
-			//echo "Insert Complete";
+			echo "Insert Complete";
 			$this->conn->close();
 			
 		}
 		
 		//Check For username and email Exists;
-		
 		
 		
 	}

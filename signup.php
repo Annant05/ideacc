@@ -4,7 +4,6 @@
 	require 'inc/customclass/SignUpClass.php';
 	require_once(dirname(__FILE__) . '/conf/config.php');
 	
-	
 	session_start();
 	
 	if (!empty($_POST)) {
@@ -13,9 +12,11 @@
 		$username = $_POST['username'];
 		$password = ($_POST['pass']);
 		$confPass = ($_POST['confPass']);
+		$usertype = $_POST['usertype'];
+		$section = $_POST['section'];
 		
 		$dal = new DAL();
-		$check_user_email = $dal->check_username_email_in_DB($username, $email);
+		$check_user_email = $dal->check_username_email_in_DB($username, $email, $usertype);
 		
 		if ($check_user_email) {  // Check if user Aleready Exists and notify
 			if (($check_user_email[0]->email === $email) && ($check_user_email[0]->username === $username)) {
@@ -29,14 +30,17 @@
 			}
 		} else {
 			$signup = new signUpClass($connection);
-			$signup->signUptoDB($name, $username, $email, $password, $confPass);
+			if ($this->usertype === "student") {
+				$signup->setStudentSection($section);
+			}
+			$signup->signUptoDB($name, $username, $email, $password, $confPass, $usertype);
 			echo "User : $username Created Successfully";
 			$_SESSION['name'] = $username;
-			header("Location:" . ROOT_URL . "/dashboard/index_ins.php");
+			//sheader("Location:" . ROOT_URL . "/dashboard/index_ins.php");
 		}
-		
 		$connection->close();
 	}
+
 ?>
 
 <!DOCTYPE html>
@@ -68,6 +72,8 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="css/util.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!--===============================================================================================-->
 </head>
 <body>
@@ -105,9 +111,8 @@
 					</select>
 				</div-->
 
-
                 <div class="wrap-input100 validate-input" data-validate="Incorrect Username">
-                    <input class="input100" type="text" name="username">
+                    <input class="input100" type="text" name="username" required>
                     <span class="focus-input100" data-placeholder="Username"></span>
                 </div>
 
@@ -115,7 +120,7 @@
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-                    <input class="input100" type="password" name="pass">
+                    <input class="input100" type="password" name="pass" required>
                     <span class="focus-input100" data-placeholder="Password"></span>
                 </div>
 
@@ -123,11 +128,29 @@
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-                    <input class="input100" type="password" name="confPass">
+                    <input class="input100" type="password" name="confPass" required>
                     <span class="focus-input100" data-placeholder="Confirm Password"></span>
                 </div>
 
-                <div class="g-recaptcha" data-sitekey="6LfoMFUUAAAAAMKfbM5xYJjzB6GWwSuTBeQewQ_F"></div>
+
+                <div>
+                    <label> <input type='radio' name='usertype' value='student' required> Student</label>
+                    <label> <input style="margin-left: 20px" type='radio' name='usertype' value='instructor' required>
+                        Instructor </label>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 20px ;margin-top: 10px">
+                    <label>Select Section</label>
+                    <select id="section" name="section">
+                        <option value="CS-1">CS-1</option>
+                        <option value="CS-2">CS-2</option>
+                        <option value="CS-3">CS-3</option>
+                        <option value="CS-4">CS-4</option>
+                    </select>
+                </div>
+
+
+                <!--                <div class="g-recaptcha" data-sitekey="6LfoMFUUAAAAAMKfbM5xYJjzB6GWwSuTBeQewQ_F"></div>-->
                 <div class="container-login100-form-btn">
                     <div class="wrap-login100-form-btn">
                         <div class="login100-form-bgbtn"></div>
@@ -193,6 +216,7 @@
 <script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 <script src="js/main.js"></script>
+
 
 </body>
 </html>

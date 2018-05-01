@@ -36,7 +36,7 @@
 	{
 		public function __construct() { }
 		
-		//TODO: Always Remeber to Have SELECT AND FROM IN UPPER CASE
+		//TODO: Always RemeMber to Have SELECT AND FROM IN UPPER CASE
 		// Below Are my Methods
 		public function check_for_the_user_in_DB($username, $password)
 		{
@@ -47,11 +47,20 @@
 			return $this->query($sql_user_pass);
 		}
 		
-		public function check_username_email_in_DB($username, $email)
+		public function check_username_email_in_DB($username, $email, $usertype)
 		{
-			/** @noinspection SqlNoDataSourceInspection */
-			/** @noinspection SqlResolve */
-			$sql_user_email = "SELECT username as username ,email as email  FROM users_table WHERE username='$username' OR email='$email'";
+			$table_name = null;
+			//	$sql_query = null;
+			
+			if ($usertype === "student") {
+				$table_name = "students";
+			} else if ($usertype === "instructor") {
+				$table_name = "instructor";
+			} else {
+				echo "unknown UserType";
+			}
+			
+			$sql_user_email = "SELECT username as username ,email as email  FROM $table_name WHERE username='$username' OR email='$email'";
 			///$sql = "SELECT name as name,username as uname FROM users_table"; // Remember Upper Case SELECT and FROM.
 			return $this->query($sql_user_email);
 		}
@@ -74,26 +83,6 @@
 		}
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		// Do not edit this Block
 		
 		private function query($sql)
@@ -101,7 +90,6 @@
 			
 			$conn = $this->dbconnect();
 			$res = mysqli_query($conn, $sql);
-			
 			
 			
 			// This Code was maybe For Security  // Not useful for me anyway
