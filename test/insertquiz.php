@@ -17,39 +17,40 @@
 		$firstQues->insertIntoDB();
 		//$firstQues->getQuestionDB();
 	}
-?>
+
+	?>
 
 <html>
 <body>
 <form method="post">
 
     <div>
-        Input Question <input type="text" name="question">
+        Input Question  <input type="text" name="question" required>
         <br>
     </div>
 
     <div>
-        Input Option 1 <input type="text" name="opt_1">
+        Input Option A <input type="text" name="opt_1" required>
         <br>
     </div>
 
     <div>
-        Input Option 2 <input type="text" name="opt_2">
+        Input Option B <input type="text" name="opt_2" required>
         <br>
     </div>
 
     <div>
-        Input Option 3 <input type="text" name="opt_3">
+        Input Option C <input type="text" name="opt_3" required>
         <br>
     </div>
 
     <div>
-        Input Option 4 <input type="text" name="opt_4">
+        Input Option D <input type="text" name="opt_4" required>
         <br>
     </div>
 
     <div>
-        Input Correct Option <input type="text" name="crct_opt">
+        Enter Correct Option <input type="text" name="crct_opt" required>
         <br>
     </div>
 

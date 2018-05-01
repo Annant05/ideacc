@@ -6877,7 +6877,7 @@ module.exports = function(Chart) {
                                 lineWidth: bw,
                                 hidden: isNaN(ds.data[i]) || meta.data[i].hidden,
 
-                                // Extra data used for toggling the correct item
+                                // extra data used for toggling the correct item
                                 index: i
                             };
                         });
@@ -7527,7 +7527,7 @@ module.exports = function(Chart) {
                                 lineWidth: bw,
                                 hidden: isNaN(ds.data[i]) || meta.data[i].hidden,
 
-                                // Extra data used for toggling the correct item
+                                // extra data used for toggling the correct item
                                 index: i
                             };
                         });
@@ -15348,7 +15348,7 @@ module.exports = function(Chart) {
                             ctx.stroke();
                             ctx.closePath();
                         }
-                        // Extra 3px out for some label spacing
+                        // extra 3px out for some label spacing
                         var pointLabelPosition = me.getPointPosition(i, outerDistance + 5);
 
                         // Keep this in loop since we may support array properties here
