@@ -1,10 +1,18 @@
 <?php
 	require '../conf/connectdb.php';
+	require_once('../conf/config.php');
+	include('../inc/class/SharedFunctions.php');
+	
 	session_start();
+	$usertype = $_SESSION['usertype'];
+	if ($usertype !== "instructor") {
+		alert_and_redirect("Please Log in",ROOT_URL . "/login.php");
+		//header("Location:" . ROOT_URL . "/index.html");
+	}
 	$name = $_SESSION['name'];
 	$username = $_SESSION['username'];
- 
-	
+
+
 ?>
 
 <!doctype html>
@@ -230,9 +238,7 @@
                 </div>
 
 
-                
-                
-<!--                <a onclick="location.href='https://www.google.com';" return false;></a>-->
+                <!--                <a onclick="location.href='https://www.google.com';" return false;></a>-->
                 <a onclick="location.href='course.php';" return false;>
                     <div class="col-sm-6 col-lg-3">
                         <div class="card text-white bg-flat-color-2">
@@ -247,64 +253,67 @@
                             </div>
                         </div>
                     </div>
-                <div class="col-xl-3 col-lg-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="stat-widget-one">
-                                <div class="stat-icon dib"><i class="ti-money text-success border-success"></i></div>
-                                <div class="stat-content dib">
-                                    <div class="stat-text">Revenue</div>
-                                    <div class="stat-digit">55</div>
+                    <div class="col-xl-3 col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="stat-widget-one">
+                                    <div class="stat-icon dib"><i class="ti-money text-success border-success"></i>
+                                    </div>
+                                    <div class="stat-content dib">
+                                        <div class="stat-text">Revenue</div>
+                                        <div class="stat-digit">55</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
 
-                <div class="col-xl-3 col-lg-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="stat-widget-one">
-                                <div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i></div>
-                                <div class="stat-content dib">
-                                    <div class="stat-text">Enrollments</div>
-                                    <div class="stat-digit">121</div>
+                    <div class="col-xl-3 col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="stat-widget-one">
+                                    <div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i></div>
+                                    <div class="stat-content dib">
+                                        <div class="stat-text">Enrollments</div>
+                                        <div class="stat-digit">121</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col-xl-3 col-lg-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="stat-widget-one">
-                                <div class="stat-icon dib"><i class="ti-layout-grid2 text-warning border-warning"></i>
-                                </div>
-                                <div class="stat-content dib">
-                                    <div class="stat-text">Submitted</div>
-                                    <div class="stat-digit">270</div>
+                    <div class="col-xl-3 col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="stat-widget-one">
+                                    <div class="stat-icon dib"><i
+                                                class="ti-layout-grid2 text-warning border-warning"></i>
+                                    </div>
+                                    <div class="stat-content dib">
+                                        <div class="stat-text">Submitted</div>
+                                        <div class="stat-digit">270</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col-xl-3 col-lg-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="stat-widget-one">
-                                <div class="stat-icon dib"><i class="ti-layout-grid2 text-warning border-warning"></i>
-                                </div>
-                                <div class="stat-content dib">
-                                    <div class="stat-text">Pending</div>
-                                    <div class="stat-digit">112</div>
+                    <div class="col-xl-3 col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="stat-widget-one">
+                                    <div class="stat-icon dib"><i
+                                                class="ti-layout-grid2 text-warning border-warning"></i>
+                                    </div>
+                                    <div class="stat-content dib">
+                                        <div class="stat-text">Pending</div>
+                                        <div class="stat-digit">112</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
 
     </div> <!-- .content -->

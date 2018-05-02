@@ -6,26 +6,15 @@
 	 * Time: 5:43 PM
 	 */
 	
-	class SharedFunctions
+	function alert_and_redirect($msg,$url)
 	{
-		public function alert_and_redirect($msg)
-		{
-			echo "<script>
+		echo "<script>
     			alert('$msg');
-    			window.location.href='http://localhost/ideacc/index.html';
+    			window.location.href='$url';
    				 </script>";
-			
-		}
-		
-		public function alert_only($msg)
-		{
-			echo "<script>
-    			alert('$msg');
-   				 </script>";
-			
-		}
 		
 	}
+	
 	
 	function alert_only_out($msg)
 	{

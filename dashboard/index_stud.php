@@ -1,13 +1,13 @@
 <?php
 	require '../conf/connectdb.php';
+	require_once('../conf/config.php');
+	include('../inc/class/SharedFunctions.php');
 	session_start();
 	$usertype = $_SESSION['usertype'];
-	if ($usertype === "student") {
-	
-	} else {
-	
+	if ($usertype !== "student") {
+		alert_and_redirect("Please Log in", ROOT_URL . "/login.php");
+		//header("Location:" . ROOT_URL . "/index.html");
 	}
-	
 	$name = $_SESSION['name'];
 	$username = $_SESSION['username'];
 ?>
