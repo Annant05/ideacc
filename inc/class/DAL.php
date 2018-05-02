@@ -121,6 +121,14 @@
 		}
 		
 		
+		public function get_filename_filetype()
+		{
+			$table_name = "coursepdf";
+			
+			$sql = "SELECT filename as fname , ftype as ftype FROM $table_name ";//WHERE subid='CS-6001' ORDER by ID DESC ";
+			return $this->query($sql);
+		}
+		
 		// Do not edit this Block
 		
 		private function query($sql)
