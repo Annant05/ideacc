@@ -1,8 +1,8 @@
 <?php
-    //Dynamically showing Subject category //
-    //TODO: Session handling Remaining;
-    
-    
+	//Dynamically showing Subject category //
+	//TODO: Session handling Remaining;
+	
+	
 	require_once('../conf/config.php');
 	
 	$dal = new DAL();
@@ -14,7 +14,6 @@
 		echo "Something Wrong";
 	}
 ?>
-hello
 
 <!DOCTYPE html>
 <html lang="en">
@@ -79,8 +78,6 @@ hello
                         <!--                        </select>-->
 						<?php echo '<select class="white-btn" id = "sub_cat" name ="sub_cat">';
 							foreach ($resarray as $sub) {
-								//$sub = array('ACA','DBMS');
-								//for($i = 0;$i<2;$i++){
 								echo '<option value="' . $sub->subject . '">' . $sub->subject . '</option>';
 							}
 							echo '</select>';

@@ -15,31 +15,40 @@
 		$usertype = $_POST['usertype'];
 		$section = $_POST['section'];
 		
-		//$dal = new DAL();
-		//$check_user_email = $dal->check_username_email_in_DB($username, $email, $usertype);
-
-//		if ($check_user_email) {  // Check if user Aleready Exists and notify
-//			if (($check_user_email[0]->email === $email) && ($check_user_email[0]->username === $username)) {
-//				echo "$username Already Exists with Email: $email ";
-//			} else if (($check_user_email[0]->username === $username)) {
-//				echo "$username Already Exists";
-//			} else if (($check_user_email[0]->email === $email)) {
-//				echo "$email Already Exists";
-//			} else {
-//				echo BR . "UserCan be created";
-//			}
-//		} else {
+		$dal = new DAL();
 		$signup = new signUpClass($connection);
-		//if ($this->usertype === "student") {
-		//		$signup->setStudentSection($section);
-		//	}
 		
-		//$signup->signUptoDB($name, $username, $email, $password, $confPass, $usertype);
+		
+		function isUserValid($check_user_email, $_email, $_username)
+		{
+			if ($check_user_email) {  // Check if user Aleready Exists and notify
+				if (($check_user_email[0]->email === $_email) && ($check_user_email[0]->username === $_username)) {
+					echo "$_username Already Exists with Email: $_email ";
+					return false;
+				} else if (($check_user_email[0]->username === $_username)) {
+					echo "$_username Already Exists";
+					return false;
+				} else if (($check_user_email[0]->email === $_email)) {
+					echo "$_email Already Exists";
+					return false;
+				} else {
+					echo BR . "UserCan be created";
+					return true;
+				}
+			}
+			return true;
+		}
 		
 		if ($usertype === "student") {
-			$signup->signUpStudent($name, $username, $email, $password, $confPass, $section);
+			$result = $dal->signup_check_student_email_in_DB($username, $email);
+			if (isUserValid($result, $email, $username)) {
+				$signup->signUpStudent($name, $username, $email, $password, $confPass, $section);
+			}
 		} else if ($usertype === "instructor") {
-			$signup->signUpInstructor($name, $username, $email, $password, $confPass);
+			$result = $dal->signup_check_student_email_in_DB($username, $email);
+			if (isUserValid($result, $email, $username)) {
+				$signup->signUpInstructor($name, $username, $email, $password, $confPass);
+			}
 		} else {
 			echo "Something went Wrong in Signup.php";
 		}
@@ -49,6 +58,25 @@
 		//}
 		$connection->close();
 	}
+	
+	
+	//		if ($check_user_email) {  // Check if user Aleready Exists and notify
+	//			if (($check_user_email[0]->email === $email) && ($check_user_email[0]->username === $username)) {
+	//				echo "$username Already Exists with Email: $email ";
+	//			} else if (($check_user_email[0]->username === $username)) {
+	//				echo "$username Already Exists";
+	//			} else if (($check_user_email[0]->email === $email)) {
+	//				echo "$email Already Exists";
+	//			} else {
+	//				echo BR . "UserCan be created";
+	//			}
+	//		} else {
+	
+	//if ($this->usertype === "student") {
+	//		$signup->setStudentSection($section);
+	//	}
+	
+	//$signup->signUptoDB($name, $username, $email, $password, $confPass, $usertype);
 
 ?>
 

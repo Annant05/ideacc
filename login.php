@@ -12,9 +12,9 @@
 		
 		
 		if ($usertype === "student") {
-			$results = $dal->check_student_in_DB($username, $password);
+			$results = $dal->login_check_student_in_DB($username, $password);
 		} else if ($usertype === "instructor") {
-			$results = $dal->check_instructor_in_DB($username,$password);
+			$results = $dal->login_check_instructor_in_DB($username,$password);
 		} else {
 			echo "Something went Wrong in Signup.php";
 		}

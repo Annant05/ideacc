@@ -47,7 +47,7 @@
 			return $this->query($sql_user_pass);
 		}
 		
-		public function check_student_in_DB($username, $password)
+		public function login_check_student_in_DB($username, $password)
 		{
 			/** @noinspection SqlNoDataSourceInspection */
 			/** @noinspection SqlResolve */
@@ -56,7 +56,7 @@
 			return $this->query($sql_user_pass);
 		}
 		
-		public function check_instructor_in_DB($username, $password)
+		public function login_check_instructor_in_DB($username, $password)
 		{
 			/** @noinspection SqlNoDataSourceInspection */
 			/** @noinspection SqlResolve */
@@ -65,6 +65,21 @@
 			return $this->query($sql_user_pass);
 		}
 		
+		public function signup_check_student_email_in_DB($username, $email)
+		{
+			$table_name = "students";
+			$sql_user_email = "SELECT username as username ,email as email  FROM $table_name WHERE username='$username' OR email='$email'";
+			return $this->query($sql_user_email);
+			
+		}
+		
+		public function signup_check_instructor_email_in_DB($username, $email)
+		{
+			$table_name = "instructor";
+			$sql_user_email = "SELECT username as username ,email as email  FROM $table_name WHERE username='$username' OR email='$email'";
+			return $this->query($sql_user_email);
+			
+		}
 		
 		public function check_username_email_in_DB($username, $email, $usertype)
 		{
