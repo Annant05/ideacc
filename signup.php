@@ -57,7 +57,6 @@
 		//}
 		$connection->close();
 	}
-
 ?>
 
 <!DOCTYPE html>

@@ -141,7 +141,7 @@
 
 
         <!--/.col-->
-
+         <a onclick="location.href='course.php';" return false;>
         <div class="col-sm-6 col-lg-3">
             <div class="card text-white bg-flat-color-2">
                 <div class="card-body pb-0">

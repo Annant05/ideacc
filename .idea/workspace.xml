@@ -103,65 +103,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="insertquiz.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/insertquiz.php">
+      <file leaf-file-name="index_ins.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dashboard/index_ins.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="36" selection-start-line="36" selection-end-line="36" />
+            <state relative-caret-position="164">
+              <caret line="140" column="33" selection-start-line="140" selection-start-column="33" selection-end-line="140" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="signup.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/signup.php">
+      <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="55" column="51" selection-start-line="55" selection-start-column="51" selection-end-line="55" selection-end-column="51" />
+            <state relative-caret-position="465">
+              <caret line="31" column="74" lean-forward="true" selection-start-line="31" selection-start-column="74" selection-end-line="31" selection-end-column="74" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SignUpClass.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/inc/customclass/SignUpClass.php">
+      <file leaf-file-name="index_stud.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dashboard/index_stud.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="523">
-              <caret line="108" column="33" lean-forward="true" selection-start-line="108" selection-start-column="33" selection-end-line="108" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DAL.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/inc/class/DAL.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="115" column="24" selection-start-line="115" selection-start-column="24" selection-end-line="115" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="showquiz.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/showquiz.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="choose.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dashboard/choose.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="course.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dashboard/course.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="454">
-              <caret line="83" column="26" lean-forward="true" selection-start-line="83" selection-start-column="26" selection-end-line="83" selection-end-column="26" />
+            <state relative-caret-position="210">
+              <caret line="143" column="63" selection-start-line="143" selection-start-column="63" selection-end-line="143" selection-end-column="63" />
             </state>
           </provider>
         </entry>
@@ -248,7 +212,6 @@
         <option value="$PROJECT_DIR$/dashboard/settings.php" />
         <option value="$PROJECT_DIR$/dashboard/index.php" />
         <option value="$PROJECT_DIR$/dashboard/logout.php" />
-        <option value="$PROJECT_DIR$/dashboard/index_stud.php" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/test/insertquiz.php" />
         <option value="$PROJECT_DIR$/dashboard/assets/css/style.css" />
@@ -257,12 +220,14 @@
         <option value="$PROJECT_DIR$/extra/quiz_user.php" />
         <option value="$PROJECT_DIR$/dashboard/choose.html" />
         <option value="$PROJECT_DIR$/dashboard/choose.php" />
-        <option value="$PROJECT_DIR$/login.php" />
         <option value="$PROJECT_DIR$/test/showquiz.php" />
         <option value="$PROJECT_DIR$/inc/class/DAL.php" />
         <option value="$PROJECT_DIR$/dashboard/course.php" />
         <option value="$PROJECT_DIR$/inc/customclass/SignUpClass.php" />
         <option value="$PROJECT_DIR$/signup.php" />
+        <option value="$PROJECT_DIR$/dashboard/index_ins.php" />
+        <option value="$PROJECT_DIR$/login.php" />
+        <option value="$PROJECT_DIR$/dashboard/index_stud.php" />
       </list>
     </option>
   </component>
@@ -404,12 +369,12 @@
       <workItem from="1525189969927" duration="6748000" />
       <workItem from="1525197294803" duration="641000" />
       <workItem from="1525198069905" duration="2410000" />
-      <workItem from="1525231060857" duration="3651000" />
+      <workItem from="1525231060857" duration="4719000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107001000" />
+    <option name="totallyTimeSpent" value="108069000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -431,7 +396,7 @@
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.38105726" />
       <window_info anchor="right" id="Remote Host" order="3" show_stripe_button="false" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14994664" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14994664" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" weight="0.32977587" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32929516" />
@@ -630,20 +595,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/index_ins.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="48" column="42" selection-end-line="344" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/index_stud.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="206" column="26" lean-forward="true" selection-start-line="206" selection-start-column="26" selection-end-line="206" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="244">
@@ -728,13 +679,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="18" lean-forward="true" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/showquiz.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -763,6 +707,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/signup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="35" column="32" lean-forward="true" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/inc/customclass/SignUpClass.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="523">
@@ -770,10 +721,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/signup.php">
+    <entry file="file://$PROJECT_DIR$/dashboard/index_ins.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="55" column="51" selection-start-line="55" selection-start-column="51" selection-end-line="55" selection-end-column="51" />
+        <state relative-caret-position="164">
+          <caret line="140" column="33" selection-start-line="140" selection-start-column="33" selection-end-line="140" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="74" lean-forward="true" selection-start-line="31" selection-start-column="74" selection-end-line="31" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/index_stud.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="143" column="63" selection-start-line="143" selection-start-column="63" selection-end-line="143" selection-end-column="63" />
         </state>
       </provider>
     </entry>

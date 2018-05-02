@@ -14,7 +14,7 @@
 		if ($usertype === "student") {
 			$results = $dal->login_check_student_in_DB($username, $password);
 		} else if ($usertype === "instructor") {
-			$results = $dal->login_check_instructor_in_DB($username,$password);
+			$results = $dal->login_check_instructor_in_DB($username, $password);
 		} else {
 			echo "Something went Wrong in Signup.php";
 		}
@@ -25,8 +25,15 @@
 			if (($results[0]->username === $username) && ($results[0]->pass === $password)) {
 				//echo BR . "Evrythin is fine";
 				$_SESSION['name'] = $results[0]->name;
-				header("Location:" . ROOT_URL . "/dashboard/index_ins.php");
-				//$_SESSION['name'] =
+				
+				if ($usertype === "student") {
+					header("Location:" . ROOT_URL . "/dashboard/index_stud.php");
+				} else if ($usertype === "instructor") {
+					header("Location:" . ROOT_URL . "/dashboard/index_ins.php");
+				}
+				
+				//header("Location:" . ROOT_URL . "/dashboard/index_ins.php");
+//				$_SESSION['name'] = $username;
 			}
 		} else {
 			echo BR . "Username or Password Wrong";
