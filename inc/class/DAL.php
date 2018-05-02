@@ -102,8 +102,9 @@
 		
 		public function get_question_from_DB($limit_val)
 		{
+			$table_name="quiz_ques";
 			/** @noinspection SqlResolve */
-			$sql_get_question = "SELECT question as ques, option_1 as opt_1,option_2 as opt_2,option_3 as opt_3,option_4 as opt_4,correct_option as cor_opt  FROM questions order by RAND()  limit $limit_val";
+			$sql_get_question = "SELECT question as ques, opt_A as opt_1,opt_B as opt_2,opt_C as opt_3,opt_D as opt_4,corr_opt as cor_opt  FROM $table_name order by RAND()  limit $limit_val";
 			return $this->query($sql_get_question);
 		}
 		

@@ -14,18 +14,19 @@
 		$firstQues->setQuestion($_POST['question']);
 		$firstQues->setOptions($_POST['opt_1'], $_POST['opt_2'], $_POST['opt_3'], $_POST['opt_4']);
 		$firstQues->setCorrectOption($_POST['crct_opt']);
+		//$firstQues->
 		$firstQues->insertIntoDB();
 		//$firstQues->getQuestionDB();
 	}
 
-	?>
+?>
 
 <html>
 <body>
 <form method="post">
 
     <div>
-        Input Question  <input type="text" name="question" required>
+        Input Question <input type="text" name="question" required>
         <br>
     </div>
 
@@ -54,6 +55,7 @@
         <br>
     </div>
 
+    
     <div>
         <button type="submit">
             Submit to db
