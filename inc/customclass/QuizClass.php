@@ -104,7 +104,7 @@
 		public function insertIntoDB()
 		{
 			$sql_query = "INSERT into quiz_ques(question,opt_A,opt_B,opt_C,opt_D,corr_opt,sub_id)
-						  values('$this->question','$this->option_A','$this->option_B','$this->option_C','$this->optio n_D','$this->correct_option','$this->subject');";
+						  values('$this->question','$this->option_A','$this->option_B','$this->option_C','$this->option_D','$this->correct_option','$this->subject');";
 			$res = $this->connection->query($sql_query);
 			echo "Insert Complete";
 			$this->connection->close();
