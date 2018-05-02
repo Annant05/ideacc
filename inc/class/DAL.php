@@ -121,13 +121,25 @@
 		}
 		
 		
-		public function get_filename_filetype()
+		public function get_course_file_filetype()
 		{
 			$table_name = "coursepdf";
 			
 			$sql = "SELECT filename as fname , ftype as ftype FROM $table_name ";//WHERE subid='CS-6001' ORDER by ID DESC ";
 			return $this->query($sql);
 		}
+		
+		
+		public function get_assignment_file_filetype()
+		{
+			$table_name = "assignment";
+			
+			$sql = "select assign_name as aname , filename  as fname, ftype as ftype from $table_name";
+			
+			//$sql = "SELECT filename as fname , ftype as ftype FROM $table_name ";//WHERE subid='CS-6001' ORDER by ID DESC ";
+			return $this->query($sql);
+		}
+		
 		
 		// Do not edit this Block
 		

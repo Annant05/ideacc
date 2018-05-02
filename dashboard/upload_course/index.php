@@ -13,11 +13,12 @@
 ?>
 <hr/>
 <link rel="stylesheet" href="style.css" type="text/css"/>
-<h1>Study Stuff For Advanced Computer Architecture</h1>
+<h1>My Assignments</h1>
 <table>
 
     <tr>
-        <th>File Name</th>
+        <th>Assignment Name</th>
+        <th>File name</th>
         <th>Type</th>
         <th>Action</th>
         <!--        <th></th>-->
@@ -26,7 +27,7 @@
         $dal = new DAL();
         //$dal->
         
-         $result = $dal->get_filename_filetype();
+         $result = $dal->get_assignment_file_filetype();
         
      //   echo $result[0]->fname;
        // echo $result[0]->fname;
@@ -35,8 +36,9 @@
 			?>
 
             <tr>
-                <td><?php echo $row->fname; ?></td>
+                <td><?php echo $row->aname; ?></td>
 <!--                <td>--><!--?php //echo number_format($row['size'] / (1024 * 1024), 2); ?><!--MB</td>-->
+                <td><?php echo $row->fname; ?></td>
                 <td><?php echo $row->ftype; ?></td>
                 <td><a href="download.php?pdf=<!--?php echo $row->fname; ?-->">Download</a></td>
             </tr>

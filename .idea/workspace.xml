@@ -106,8 +106,8 @@
       <file leaf-file-name="DAL.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inc/class/DAL.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="130" column="8" lean-forward="true" selection-start-line="130" selection-start-column="8" selection-end-line="130" selection-end-column="8" />
+            <state relative-caret-position="409">
+              <caret line="139" column="12" selection-start-line="139" selection-start-column="12" selection-end-line="139" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -115,8 +115,8 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dashboard/upload_course/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="300">
+              <caret line="20" column="21" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -263,7 +263,7 @@
   <component name="PhpServers">
     <servers />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="4">
     <option name="y" value="33" />
     <option name="width" value="960" />
     <option name="height" value="1047" />
@@ -428,12 +428,12 @@
       <workItem from="1525231060857" duration="5889000" />
       <workItem from="1525237491618" duration="893000" />
       <workItem from="1525238859844" duration="4484000" />
-      <workItem from="1525246497355" duration="4092000" />
+      <workItem from="1525246497355" duration="4961000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="118708000" />
+    <option name="totallyTimeSpent" value="119577000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -445,7 +445,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="33" width="1920" height="1047" extended-state="6" />
+    <frame x="0" y="33" width="960" height="1047" extended-state="4" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32929516" />
@@ -453,11 +453,12 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32929516" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.37885463" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.37885463" />
       <window_info anchor="right" id="Remote Host" order="3" show_stripe_button="false" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17449306" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.35776806" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" weight="0.32977587" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32929516" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
@@ -467,7 +468,6 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32929516" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -801,15 +801,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/inc/class/DAL.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="130" column="8" lean-forward="true" selection-start-line="130" selection-start-column="8" selection-end-line="130" selection-end-column="8" />
+        <state relative-caret-position="409">
+          <caret line="139" column="12" selection-start-line="139" selection-start-column="12" selection-end-line="139" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dashboard/upload_course/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="300">
+          <caret line="20" column="21" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
         </state>
       </provider>
     </entry>
