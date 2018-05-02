@@ -8,7 +8,7 @@
 	
 	class SharedFunctions
 	{
-		public function alert($msg)
+		public function alert_and_redirect($msg)
 		{
 			echo "<script>
     			alert('$msg');
@@ -16,6 +16,23 @@
    				 </script>";
 			
 		}
+		
+		public function alert_only($msg)
+		{
+			echo "<script>
+    			alert('$msg');
+   				 </script>";
+			
+		}
+		
+	}
+	
+	function alert_only_out($msg)
+	{
+		echo "<script>
+    			alert('$msg');
+   				 </script>";
+		
 	}
 
 ?>

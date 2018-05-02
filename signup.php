@@ -3,9 +3,11 @@
 	require 'conf/connectdb.php';
 	require 'inc/customclass/SignUpClass.php';
 	require_once(dirname(__FILE__) . '/conf/config.php');
+	include('inc/class/SharedFunctions.php');
 	
 	session_start();
 	
+	//$alert = $func->alert_only();
 	if (!empty($_POST)) {
 		$name = $_POST['name'];
 		$email = $_POST['email'];
@@ -23,16 +25,20 @@
 		{
 			if ($check_user_email) {  // Check if user Aleready Exists and notify
 				if (($check_user_email[0]->email === $_email) && ($check_user_email[0]->username === $_username)) {
-					echo "$_username Already Exists with Email: $_email ";
+					$msg = "$_username Already Exists with Email: $_email ";
+					alert_only_out($msg);
 					return false;
 				} else if (($check_user_email[0]->username === $_username)) {
-					echo "$_username Already Exists";
+					$msg = "$_username Already Exists";
+					alert_only_out($msg);
 					return false;
 				} else if (($check_user_email[0]->email === $_email)) {
-					echo "$_email Already Exists";
+					$msg = "$_email Already Exists";
+					alert_only_out($msg);
 					return false;
 				} else {
-					echo BR . "UserCan be created";
+					//$msg = "UserCan be created";
+					//alert_only_out($msg);
 					return true;
 				}
 			}
@@ -50,7 +56,8 @@
 				$signup->signUpInstructor($name, $username, $email, $password, $confPass);
 			}
 		} else {
-			echo "Something went Wrong in Signup.php";
+			$msg = "Something went Wrong in Signup.php";
+			alert_only_out($msg);
 		}
 		$_SESSION['name'] = $username;
 		//sheader("Location:" . ROOT_URL . "/dashboard/index_ins.php");

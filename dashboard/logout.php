@@ -13,10 +13,9 @@
 	session_unset();
 	session_destroy();
 	ob_start();
-	$SF->alert("SuccessFully Logged Out");
+	$SF->alert_and_redirect("SuccessFully Logged Out");
 	
 	//header("Location:" . ROOT_URL . "/login.php");
-	
 	exit();
 ?>
 

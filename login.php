@@ -1,6 +1,7 @@
 <?php
 	//require 'connectdb.php';
 	require_once(dirname(__FILE__) . '/conf/config.php');
+	include('inc/class/SharedFunctions.php');
 	
 	session_start();
 	$dal = new DAL();
@@ -16,7 +17,8 @@
 		} else if ($usertype === "instructor") {
 			$results = $dal->login_check_instructor_in_DB($username, $password);
 		} else {
-			echo "Something went Wrong in Signup.php";
+			$msg = "Something went Wrong in Signup.php";
+			alert_only_out($msg);
 		}
 		
 		
@@ -28,17 +30,18 @@
 				
 				if ($usertype === "student") {
 					$_SESSION['usertype'] = "student";
-				    header("Location:" . ROOT_URL . "/dashboard/index_stud.php");
+					header("Location:" . ROOT_URL . "/dashboard/index_stud.php");
 				} else if ($usertype === "instructor") {
 					$_SESSION['usertype'] = "instructor";
-				    header("Location:" . ROOT_URL . "/dashboard/index_ins.php");
+					header("Location:" . ROOT_URL . "/dashboard/index_ins.php");
 				}
 				
 				//header("Location:" . ROOT_URL . "/dashboard/index_ins.php");
 //				$_SESSION['name'] = $username;
 			}
 		} else {
-			echo BR . "Username or Password Wrong";
+		    $msg = "Username or Password Wrong";
+			alert_only_out($msg);
 		}
 		
 	}
