@@ -38,29 +38,32 @@
 		
 		//TODO: Always RemeMber to Have SELECT AND FROM IN UPPER CASE
 		// Below Are my Methods
-		public function check_for_the_user_in_DB($username, $password)
-		{
-			/** @noinspection SqlNoDataSourceInspection */
-			/** @noinspection SqlResolve */
-			$sql_user_pass = "SELECT username as username , password as pass,name as name,email as email  FROM users_table WHERE username='$username' and password='$password'";
-			///$sql = "SELECT name as name,username as uname FROM users_table"; // Remember Upper Case SELECT and FROM.
-			return $this->query($sql_user_pass);
-		}
+//		public function check_for_the_user_in_DB($username, $password)
+//		{
+//			/** @noinspection SqlNoDataSourceInspection */
+//			/** @noinspection SqlResolve */
+//			$sql_user_pass = "SELECT username as username , password as pass,name as name,email as email  FROM users_table WHERE username='$username' and password='$password'";
+//			///$sql = "SELECT name as name,username as uname FROM users_table"; // Remember Upper Case SELECT and FROM.
+//			return $this->query($sql_user_pass);
+//		}
 		
 		public function login_check_student_in_DB($username, $password)
 		{
+			$table_name = "students";
+			
 			/** @noinspection SqlNoDataSourceInspection */
 			/** @noinspection SqlResolve */
-			$sql_user_pass = "SELECT username as username , password as pass,name as name,email as email  FROM students WHERE username='$username' and password='$password'";
+			$sql_user_pass = "SELECT username as username , password as pass,name as name,email as email  FROM $table_name WHERE username='$username' and password='$password'";
 			///$sql = "SELECT name as name,username as uname FROM users_table"; // Remember Upper Case SELECT and FROM.
 			return $this->query($sql_user_pass);
 		}
 		
 		public function login_check_instructor_in_DB($username, $password)
 		{
+			$table_name = "instructor";
 			/** @noinspection SqlNoDataSourceInspection */
 			/** @noinspection SqlResolve */
-			$sql_user_pass = "SELECT username as username , password as pass,name as name,email as email  FROM instructor WHERE username='$username' and password='$password'";
+			$sql_user_pass = "SELECT username as username , password as pass,name as name,email as email  FROM $table_name WHERE username='$username' and password='$password'";
 			///$sql = "SELECT name as name,username as uname FROM users_table"; // Remember Upper Case SELECT and FROM.
 			return $this->query($sql_user_pass);
 		}
@@ -102,7 +105,7 @@
 		
 		public function get_question_from_DB($limit_val)
 		{
-			$table_name="quiz_ques";
+			$table_name = "quiz_ques";
 			/** @noinspection SqlResolve */
 			$sql_get_question = "SELECT question as ques, opt_A as opt_1,opt_B as opt_2,opt_C as opt_3,opt_D as opt_4,corr_opt as cor_opt  FROM $table_name order by RAND()  limit $limit_val";
 			return $this->query($sql_get_question);
@@ -111,9 +114,9 @@
 		
 		public function get_subject_categories_from_DB()
 		{
-			
+			$table_name = "sub_category";
 			/** @noinspection SqlResolve */
-			$sql_cat = "SELECT cname as subject from sub_category order by cname asc ";
+			$sql_cat = "SELECT sub_name as subject from $table_name order by sub_name asc ";
 			return $this->query($sql_cat);
 		}
 		

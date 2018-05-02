@@ -227,20 +227,24 @@
                     </div>
                 </div>
 
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card text-white bg-flat-color-3">
-                        <div class="card-body pb-0">
 
-                            <h4 class="mb-0">
-                                <span class="count">0</span>
-                            </h4>
-                            <p class="text-light">Active Quizzes</p>
-                            <h4>Upload Quizzes</h4>
-                            <br><br>
+                
+                
+<!--                <a onclick="location.href='https://www.google.com';" return false;></a>-->
+                <a onclick="location.href='course.php';" return false;>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card text-white bg-flat-color-2">
+                            <div class="card-body pb-0">
+
+                                <h4 class="mb-0">
+                                    <span class="count">0</span>
+                                </h4>
+                                <p class="text-light">Active Quizzes</p>
+                                <h4>Upload Courses</h4>
+                                <br><br>
+                            </div>
                         </div>
                     </div>
-                </div>
-
                 <div class="col-xl-3 col-lg-6">
                     <div class="card">
                         <div class="card-body">
