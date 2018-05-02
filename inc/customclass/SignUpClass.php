@@ -103,7 +103,6 @@
 			if ($password === $checkPass) {
 				//Check For username and email Exists;
 				$res = $this->conn->query($sql_query);
-				echo "Insert Complete Instructor";
 			} else {
 				echo "Something went wrong while inserting in INSTRUCTOR";
 			}
@@ -118,7 +117,6 @@
 			if ($password === $checkPass) {
 				//Check For username and email Exists;
 				$res = $this->conn->query($sql_query);
-				echo "Insert Complete Student";
 			} else {
 				echo "Something went Wrong in Sign Up student";
 			}

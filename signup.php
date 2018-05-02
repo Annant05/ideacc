@@ -45,38 +45,18 @@
 				$signup->signUpStudent($name, $username, $email, $password, $confPass, $section);
 			}
 		} else if ($usertype === "instructor") {
-			$result = $dal->signup_check_student_email_in_DB($username, $email);
+			$result = $dal->signup_check_instructor_email_in_DB($username, $email);
 			if (isUserValid($result, $email, $username)) {
 				$signup->signUpInstructor($name, $username, $email, $password, $confPass);
 			}
 		} else {
 			echo "Something went Wrong in Signup.php";
 		}
-		echo "User : $username Created Successfully";
 		$_SESSION['name'] = $username;
 		//sheader("Location:" . ROOT_URL . "/dashboard/index_ins.php");
 		//}
 		$connection->close();
 	}
-	
-	
-	//		if ($check_user_email) {  // Check if user Aleready Exists and notify
-	//			if (($check_user_email[0]->email === $email) && ($check_user_email[0]->username === $username)) {
-	//				echo "$username Already Exists with Email: $email ";
-	//			} else if (($check_user_email[0]->username === $username)) {
-	//				echo "$username Already Exists";
-	//			} else if (($check_user_email[0]->email === $email)) {
-	//				echo "$email Already Exists";
-	//			} else {
-	//				echo BR . "UserCan be created";
-	//			}
-	//		} else {
-	
-	//if ($this->usertype === "student") {
-	//		$signup->setStudentSection($section);
-	//	}
-	
-	//$signup->signUptoDB($name, $username, $email, $password, $confPass, $usertype);
 
 ?>
 
