@@ -65,6 +65,7 @@
             <div class="row">
 
                 <!--home content-->
+                <form action="upload_course/index.php" method="post">
                 <div class="col-md-10 col-md-offset-1">
                     <div class="home-content">
                         <h1 class="white-text"> You are all set to start!</h1>
@@ -88,6 +89,7 @@
 
                     </div>
                 </div>
+                </form>
                 <!-- /home content-->
 
             </div>

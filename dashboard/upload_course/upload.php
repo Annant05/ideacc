@@ -4,7 +4,9 @@
 <input type="submit" name="submit" value="Upload"/>
 </form>
 <?php
-include("connect.php");
+	include("../../conf/connectdb.php");
+	$create_table="CREATE TABLE IF NOT EXISTS `coursepdf` (`sub_id` int(11) NOT NULL AUTO_INCREMENT,`cname` varchar(100) NOT NULL,`size` varchar(100) NOT NULL,`type` varchar(10) NOT NULL, `class` varchar(10) NOT NULL,PRIMARY KEY(id)) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1";
+	$result=mysqli_query($connection,$create_table);
 
 $errors=1;
  //Targeting Folder
@@ -48,7 +50,7 @@ if ($filesize < 100 && $filesize< 2000000){
    $name=$_FILES['pdf']['name'];
    $size=$_FILES['pdf']['size'];
      
-   $result=mysqli_query($conn,"INSERT INTO pdf (name,size,type,cname)VALUES('$name','$size','$type','$coursename')");
+   $result=mysqli_query($connection,"INSERT INTO coursepdf (cname,size,type,cname)VALUES('$name','$size','$type','$coursename')");
       
    if($result==TRUE){
     echo "Your pdf '$name' Successfully Upload and Information Saved Our Database";
