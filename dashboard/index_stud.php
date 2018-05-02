@@ -1,6 +1,13 @@
 <?php
 	require '../conf/connectdb.php';
 	session_start();
+	$usertype = $_SESSION['usertype'];
+	if ($usertype === "student") {
+	
+	} else {
+	
+	}
+	
 	$name = $_SESSION['name'];
 	$username = $_SESSION['username'];
 ?>
@@ -141,87 +148,87 @@
 
 
         <!--/.col-->
-         <a onclick="location.href='course.php';" return false;>
-        <div class="col-sm-6 col-lg-3">
-            <div class="card text-white bg-flat-color-2">
-                <div class="card-body pb-0">
-
-                    <h4 class="mb-0">
-                        <span class="count">0</span>
-                    </h4>
-                    <p class="text-light">Active Courses</p>
-                    <h4>View Courses</h4>
-                    <br><br>
-                </div>
-            </div>
-        </div>
-
-        <!--/.col-->
-
-        <div class="col-sm-6 col-lg-3">
-            <div class="card text-white bg-flat-color-3">
-                <div class="card-body pb-0">
-
-                    <h4 class="mb-0">
-                        <span class="count">5</span>
-                    </h4>
-                    <p class="text-light">Active Assignments</p>
-                    <h4>View Assignments</h4>
-                    <br><br>
-
-                </div>
-
-
-            </div>
-        </div>
-        <!--/.col-->
-
-
-        <a onClick="openPicker();" return false;>
-
+        <a onclick="location.href='course.php';" return false;>
             <div class="col-sm-6 col-lg-3">
-                <div class="card text-white bg-flat-color-4">
+                <div class="card text-white bg-flat-color-2">
                     <div class="card-body pb-0">
 
                         <h4 class="mb-0">
                             <span class="count">0</span>
                         </h4>
-                        <p class="text-light">Active Quizzes</p>
-                        <h4>View Quizzes</h4>
+                        <p class="text-light">Active Courses</p>
+                        <h4>View Courses</h4>
                         <br><br>
                     </div>
                 </div>
             </div>
 
+            <!--/.col-->
 
-            <div class="col-xl-3 col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="stat-widget-one">
-                            <div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i></div>
-                            <div class="stat-content dib">
-                                <div class="stat-text">Enrollments</div>
-                                <div class="stat-digit">121</div>
+            <div class="col-sm-6 col-lg-3">
+                <div class="card text-white bg-flat-color-3">
+                    <div class="card-body pb-0">
+
+                        <h4 class="mb-0">
+                            <span class="count">5</span>
+                        </h4>
+                        <p class="text-light">Active Assignments</p>
+                        <h4>View Assignments</h4>
+                        <br><br>
+
+                    </div>
+
+
+                </div>
+            </div>
+            <!--/.col-->
+
+
+            <a onClick="openPicker();" return false;>
+
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card text-white bg-flat-color-4">
+                        <div class="card-body pb-0">
+
+                            <h4 class="mb-0">
+                                <span class="count">0</span>
+                            </h4>
+                            <p class="text-light">Active Quizzes</p>
+                            <h4>View Quizzes</h4>
+                            <br><br>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="stat-widget-one">
+                                <div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i></div>
+                                <div class="stat-content dib">
+                                    <div class="stat-text">Enrollments</div>
+                                    <div class="stat-digit">121</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="col-xl-3 col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="stat-widget-one">
-                            <div class="stat-icon dib"><i class="ti-layout-grid2 text-warning border-warning"></i>
-                            </div>
-                            <div class="stat-content dib">
-                                <div class="stat-text">Submitted</div>
-                                <div class="stat-digit">270</div>
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="stat-widget-one">
+                                <div class="stat-icon dib"><i class="ti-layout-grid2 text-warning border-warning"></i>
+                                </div>
+                                <div class="stat-content dib">
+                                    <div class="stat-text">Submitted</div>
+                                    <div class="stat-digit">270</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
 
     </div> <!-- .content -->

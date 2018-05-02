@@ -20,7 +20,6 @@
 		die("Connection failed: " . $connection->connect_error);
 	}
 	
-	
 	/*	if (mysqli_connect_errno($connect)) {
 			echo 'Failed to connect';
 			echo mysqli_connect_errno($connect);

@@ -20,5 +20,6 @@
 	define('DB_DB', 'users');
 	define('BR', "<BR>");
 	define('ROOT_URL', $url);
+	
 
 ?>

@@ -27,9 +27,11 @@
 				$_SESSION['name'] = $results[0]->name;
 				
 				if ($usertype === "student") {
-					header("Location:" . ROOT_URL . "/dashboard/index_stud.php");
+					$_SESSION['usertype'] = "student";
+				    header("Location:" . ROOT_URL . "/dashboard/index_stud.php");
 				} else if ($usertype === "instructor") {
-					header("Location:" . ROOT_URL . "/dashboard/index_ins.php");
+					$_SESSION['usertype'] = "instructor";
+				    header("Location:" . ROOT_URL . "/dashboard/index_ins.php");
 				}
 				
 				//header("Location:" . ROOT_URL . "/dashboard/index_ins.php");

@@ -7,22 +7,16 @@
 	 */
 	
 	require_once('../conf/config.php');
-	
+	require_once('../inc/class/SharedFunctions.php');
+	$SF = new SharedFunctions();
 	session_start();
 	session_unset();
 	session_destroy();
 	ob_start();
-	alert("Successfully Logged out!");
+	$SF->alert("SuccessFully Logged Out");
 	
-	function alert($msg)
-	{
-		echo "<script type='text/javascript'>alert('$msg'); delay(1500);</script>";
-	}
-	
-	header("Location:" . ROOT_URL . "/index.html");
+	//header("Location:" . ROOT_URL . "/login.php");
 	
 	exit();
 ?>
-<html>
-Hello
-</html>
+
