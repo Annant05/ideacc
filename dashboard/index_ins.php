@@ -10,7 +10,7 @@
 		//header("Location:" . ROOT_URL . "/index.html");
 	}
 	$name = $_SESSION['name'];
-	$username = $_SESSION['username'];
+	//$username = $_SESSION['username'];
 
 
 ?>

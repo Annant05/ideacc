@@ -5,18 +5,24 @@
 	 * Date: 25/4/18
 	 * Time: 8:06 PM
 	 */
-	require '../inc/customclass/QuizClass.php';
+	require '../../inc/customclass/QuizClass.php';
 	require 'connectdb.php';
+	require_once('../../conf/config.php');
+	include('../../inc/class/SharedFunctions.php');
+	
 	
 	if (!empty($_POST)) {
-		echo "Inside POST IF <br>";
+		//echo "Inside POST IF <br>";
 		$firstQues = new QuizClass($connection);
 		$firstQues->setQuestion($_POST['question']);
 		$firstQues->setOptions($_POST['opt_1'], $_POST['opt_2'], $_POST['opt_3'], $_POST['opt_4']);
 		$firstQues->setCorrectOption($_POST['crct_opt']);
 		//$firstQues->
-		$firstQues->insertIntoDB();
+		$res = $firstQues->insertIntoDB();
 		//$firstQues->getQuestionDB();
+        if($res){
+            alert_only_out("Insert Complete");
+        }
 	}
 
 ?>
@@ -55,7 +61,7 @@
         <br>
     </div>
 
-    
+
     <div>
         <button type="submit">
             Submit to db

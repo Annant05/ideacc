@@ -10,7 +10,7 @@
 	$host = 'localhost';
 	$user = 'root';
 	$password = 'root';
-	$database = 'users';
+	$database = 'acc';
 	
 	
 	//$connect=mysqli_connect("$host","$user","$password","$database");

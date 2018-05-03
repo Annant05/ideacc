@@ -9,7 +9,7 @@
 		//header("Location:" . ROOT_URL . "/index.html");
 	}
 	$name = $_SESSION['name'];
-	$username = $_SESSION['username'];
+	//$username = $_SESSION['username'];
 ?>
 
 <!doctype html>
@@ -93,8 +93,7 @@
                         <img class="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar">
                     </a>
 
-
-                    <!-- TODO: Drop Down Menu Links not working -->
+                    
                     <div class="user-menu dropdown-menu">
                         <a class="nav-link" href="profile.php"><i class="fa fa- user"></i>My Profile</a>
 
@@ -184,12 +183,12 @@
             <!--/.col-->
 
 
-            <a onClick="openPicker();" return false;>
+<!--            <a onClick="openPicker();" return false;>-->
 
                 <div class="col-sm-6 col-lg-3">
                     <div class="card text-white bg-flat-color-4">
                         <div class="card-body pb-0">
-
+                            <a onclick="location.href='test/showquiz.php';" return false;>
                             <h4 class="mb-0">
                                 <span class="count">0</span>
                             </h4>

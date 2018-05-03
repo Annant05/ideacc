@@ -62,7 +62,7 @@
 		$_SESSION['name'] = $username;
 		//sheader("Location:" . ROOT_URL . "/dashboard/index_ins.php");
 		//}
-		$connection->close();
+		//$connection->close();
 	}
 ?>
 

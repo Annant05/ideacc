@@ -16,7 +16,7 @@
 	define('DB_HOST', 'localhost');
 	define('DB_USER', 'root');
 	define('DB_PASSWORD', 'root');
-	define('DB_DB', 'users');
+	define('DB_DB', 'acc');
 	define('BR', "<BR>");
 	define('ROOT_URL', "http://localhost/ideacc");
 	

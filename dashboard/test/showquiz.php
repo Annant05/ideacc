@@ -8,12 +8,17 @@
 	
 	
 	//require_once(dirname(__FILE__) . '../conf/config.php');
-	require_once('../conf/config.php');
+	require_once('../../conf/config.php');
 	
 	session_start();
-	$_SESSION['start'] = true;
-	$_SESSION['score'] = 0;
+	if (!$_SESSION['quiz_start']) {
+		$_SESSION['quiz_start'] = true;
+		$_SESSION['score'] = 0;
+	 
+	} else {
+		//$_SESSION['start'] = true;
 	
+	}
 	
 	$dal = new DAL();
 	$results = $dal->get_question_from_DB(1);
@@ -57,7 +62,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Quiz</title>
+    <title>Quiz</title>s
     <link rel="stylesheet" type="text/css" href="../dashboard/view.css" media="all">
     <script type="text/javascript" src="../dashboard/view.js"></script>
 
@@ -66,7 +71,7 @@
 <div id="form_container">
 
     <h1><a>Quiz </a></h1>
-    <form id="quiz" method="post" action="">
+    <form id="quiz" method="post" action="#">
         <div class="form_description">
             <h2>Your Quiz </h2>
         </div>
