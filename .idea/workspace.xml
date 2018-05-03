@@ -902,16 +902,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DAL.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/inc/class/DAL.php">
+      <file leaf-file-name="showquiz.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/extra/showquiz.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="613">
-              <caret line="174" column="51" lean-forward="true" selection-start-line="174" selection-start-column="51" selection-end-line="174" selection-end-column="51" />
+            <state relative-caret-position="158">
+              <caret line="79" column="55" selection-start-line="79" selection-start-column="55" selection-end-line="79" selection-end-column="55" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="upload_quiz.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="insertquiz.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/extra/insertquiz.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DAL.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/inc/class/DAL.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="598">
+              <caret line="173" column="25" lean-forward="true" selection-start-line="173" selection-start-column="25" selection-end-line="173" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="upload_quiz.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dashboard/quiz/upload_quiz.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="435">
@@ -921,6 +939,56 @@
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/login.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="79" selection-start-line="17" selection-start-column="79" selection-end-line="17" selection-end-column="79" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/conf/config.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="34" lean-forward="true" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="quiz.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/extra/quiz.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="788">
+              <caret line="116" selection-start-line="116" selection-end-line="116" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="quiz_user.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/extra/quiz_user.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-332">
+              <caret line="68" column="57" selection-start-line="68" selection-start-column="53" selection-end-line="68" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="connectdb.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/extra/connectdb.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="5" selection-start-column="5" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SharedFunctions.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/inc/class/SharedFunctions.php">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -1008,18 +1076,14 @@
         <option value="$PROJECT_DIR$/dashboard/choose.html" />
         <option value="$PROJECT_DIR$/dashboard/choose.php" />
         <option value="$PROJECT_DIR$/dashboard/course.php" />
-        <option value="$PROJECT_DIR$/dashboard/upload_course/upload.php" />
         <option value="$PROJECT_DIR$/test/quiz.php" />
         <option value="$PROJECT_DIR$/quiz/quiz.php" />
-        <option value="$PROJECT_DIR$/dashboard/upload_course/index.php" />
         <option value="$PROJECT_DIR$/login.php" />
         <option value="$PROJECT_DIR$/inc/class/SharedFunctions.php" />
         <option value="$PROJECT_DIR$/test/showquiz.php" />
         <option value="$PROJECT_DIR$/dashboard/test/showquiz.php" />
         <option value="$PROJECT_DIR$/dashboard/test/insertquiz.php" />
         <option value="$PROJECT_DIR$/dashboard/logout.php" />
-        <option value="$PROJECT_DIR$/dashboard/index_stud.php" />
-        <option value="$PROJECT_DIR$/dashboard/index_ins.php" />
         <option value="$PROJECT_DIR$/dashboard/submit_assign/index.php" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/conf/connectdb.php" />
@@ -1030,8 +1094,12 @@
         <option value="$PROJECT_DIR$/dashboard/quiz/view_quiz.html" />
         <option value="$PROJECT_DIR$/dashboard/quiz/upload_quiz.html" />
         <option value="$PROJECT_DIR$/inc/class/DAL.php" />
-        <option value="$PROJECT_DIR$/conf/config.php" />
         <option value="$PROJECT_DIR$/dashboard/quiz/upload_quiz.php" />
+        <option value="$PROJECT_DIR$/dashboard/index_stud.php" />
+        <option value="$PROJECT_DIR$/dashboard/index_ins.php" />
+        <option value="$PROJECT_DIR$/dashboard/upload_course/upload.php" />
+        <option value="$PROJECT_DIR$/dashboard/upload_course/index.php" />
+        <option value="$PROJECT_DIR$/conf/config.php" />
       </list>
     </option>
   </component>
@@ -1238,12 +1306,12 @@
       <workItem from="1525327969633" duration="633000" />
       <workItem from="1525345420779" duration="599000" />
       <workItem from="1525351136517" duration="1962000" />
-      <workItem from="1525366086129" duration="6685000" />
+      <workItem from="1525366086129" duration="7058000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="143956000" />
+    <option name="totallyTimeSpent" value="144329000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1365,20 +1433,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/index_stud.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/extra/connectdb.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="5" selection-start-column="5" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dashboard/view.css" />
     <entry file="file://$PROJECT_DIR$/dashboard/settings.php" />
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/block.rnc">
@@ -1396,31 +1450,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/quiz/quiz.php" />
-    <entry file="file://$PROJECT_DIR$/extra/insertquiz.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/extra/acc_db.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="17" column="2" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/extra/quiz.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="763">
-          <caret line="116" selection-start-line="116" selection-end-line="116" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/extra/quiz_user.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="68" column="57" selection-start-line="68" selection-start-column="53" selection-end-line="68" selection-end-column="57" />
         </state>
       </provider>
     </entry>
@@ -1430,24 +1463,10 @@
     <entry file="file://$PROJECT_DIR$/dashboard/choose.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/conf/connectdb.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="34" column="57" selection-start-line="34" selection-start-column="57" selection-end-line="34" selection-end-column="57" />
         </state>
       </provider>
     </entry>
@@ -1472,13 +1491,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/extra/showquiz.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="79" column="55" selection-start-line="79" selection-start-column="55" selection-end-line="79" selection-end-column="55" />
         </state>
       </provider>
     </entry>
@@ -1517,17 +1529,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conf/config.php">
+    <entry file="file://$PROJECT_DIR$/dashboard/index_ins.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="68" lean-forward="true" selection-start-line="2" selection-start-column="68" selection-end-line="2" selection-end-column="68" />
+        <state relative-caret-position="15">
+          <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inc/class/DAL.php">
+    <entry file="file://$PROJECT_DIR$/dashboard/upload_course/upload.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="613">
-          <caret line="174" column="51" lean-forward="true" selection-start-line="174" selection-start-column="51" selection-end-line="174" selection-end-column="51" />
+        <state relative-caret-position="90">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/upload_course/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="5" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/index_stud.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="55" lean-forward="true" selection-start-line="17" selection-start-column="55" selection-end-line="17" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/connectdb.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -1538,6 +1571,65 @@
           <folding>
             <element signature="n#style#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="79" selection-start-line="17" selection-start-column="79" selection-end-line="17" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="34" lean-forward="true" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extra/quiz.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="788">
+          <caret line="116" selection-start-line="116" selection-end-line="116" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extra/showquiz.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="79" column="55" selection-start-line="79" selection-start-column="55" selection-end-line="79" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extra/quiz_user.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-332">
+          <caret line="68" column="57" selection-start-line="68" selection-start-column="53" selection-end-line="68" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extra/insertquiz.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extra/connectdb.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" selection-start-column="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inc/class/SharedFunctions.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inc/class/DAL.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="598">
+          <caret line="173" column="25" lean-forward="true" selection-start-line="173" selection-start-column="25" selection-end-line="173" selection-end-column="25" />
         </state>
       </provider>
     </entry>

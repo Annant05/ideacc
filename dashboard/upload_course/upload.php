@@ -4,7 +4,7 @@
 <input type="submit" name="submit" value="Upload"/>
 </form>
 <?php
-	include("../../conf/connectdb.php");
+	//include("../../conf/connectdb.php");
 	$create_table="CREATE TABLE IF NOT EXISTS `coursepdf` (`sub_id` int(11) NOT NULL AUTO_INCREMENT,`cname` varchar(100) NOT NULL,`size` varchar(100) NOT NULL,`type` varchar(10) NOT NULL, `class` varchar(10) NOT NULL,PRIMARY KEY(id)) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1";
 	$result=mysqli_query($connection,$create_table);
 

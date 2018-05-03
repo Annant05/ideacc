@@ -1,7 +1,6 @@
 <?php
-	require '../conf/connectdb.php';
 	require_once('../conf/config.php');
-	include('../inc/class/SharedFunctions.php');
+	//include('../inc/class/SharedFunctions.php');
 	session_start();
 	$usertype = $_SESSION['usertype'];
 	if ($usertype !== "student") {

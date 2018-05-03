@@ -1,5 +1,4 @@
 <?php
-	require '../conf/connectdb.php';
 	require_once('../conf/config.php');
 	include('../inc/class/SharedFunctions.php');
 	
