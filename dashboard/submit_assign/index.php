@@ -1,6 +1,5 @@
 <?php
 include("connect.php");
-#include('upload.php');
 ?>
 <hr/>
 <link rel="stylesheet" href="style.css" type="text/css"/>
