@@ -1,6 +1,7 @@
 <?php
 	
 	require_once(dirname(dirname(__FILE__)) . '/inc/class/DAL.php');
+	require_once(dirname(dirname(__FILE__)) . '/inc/class/SharedFunctions.php');
 	//require_once(dirname(dirname(__FILE__)) . '/inc/class/InheritDAL.php');
 	/**
 	 * Created by PhpStorm.
@@ -19,6 +20,6 @@
 	define('DB_DB', 'acc');
 	define('BR', "<BR>");
 	define('ROOT_URL', "http://localhost/ideacc");
-	
+
 
 ?>

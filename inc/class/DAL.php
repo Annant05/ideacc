@@ -36,133 +36,34 @@
 	{
 		public function __construct() { }
 		
-		//TODO: Always RemeMber to Have SELECT AND FROM IN UPPER CASE
-		// Below Are my Methods
-//		public function check_for_the_user_in_DB($username, $password)
-//		{
-//			/** @noinspection SqlNoDataSourceInspection */
-//			/** @noinspection SqlResolve */
-//			$sql_user_pass = "SELECT username as username , password as pass,name as name,email as email  FROM users_table WHERE username='$username' and password='$password'";
-//			///$sql = "SELECT name as name,username as uname FROM users_table"; // Remember Upper Case SELECT and FROM.
-//			return $this->query($sql_user_pass);
-//		}
-		
-		public function login_check_student_in_DB($username, $password)
-		{
-			$table_name = "students";
-			
-			/** @noinspection SqlNoDataSourceInspection */
-			/** @noinspection SqlResolve */
-			$sql_user_pass = "SELECT username as username , password as pass,name as name,email as email  FROM $table_name WHERE username='$username' and password='$password'";
-			///$sql = "SELECT name as name,username as uname FROM users_table"; // Remember Upper Case SELECT and FROM.
-			return $this->query($sql_user_pass);
-		}
-		
-		public function login_check_instructor_in_DB($username, $password)
-		{
-			$table_name = "instructor";
-			/** @noinspection SqlNoDataSourceInspection */
-			/** @noinspection SqlResolve */
-			$sql_user_pass = "SELECT username as username , password as pass,name as name,email as email  FROM $table_name WHERE username='$username' and password='$password'";
-			///$sql = "SELECT name as name,username as uname FROM users_table"; // Remember Upper Case SELECT and FROM.
-			return $this->query($sql_user_pass);
-		}
-		
-		public function signup_check_student_email_in_DB($username, $email)
-		{
-			$table_name = "students";
-			$sql_user_email = "SELECT username as username ,email as email  FROM $table_name WHERE username='$username' OR email='$email'";
-			return $this->query($sql_user_email);
-			
-		}
-		
-		public function signup_check_instructor_email_in_DB($username, $email)
-		{
-			$table_name = "instructor";
-			$sql_user_email = "SELECT username as username ,email as email  FROM $table_name WHERE username='$username' OR email='$email'";
-			return $this->query($sql_user_email);
-			
-		}
-		
-		public function check_username_email_in_DB($username, $email, $usertype)
-		{
-			$table_name = null;
-			//	$sql_query = null;
-			
-			if ($usertype === "student") {
-				$table_name = "students";
-			} else if ($usertype === "instructor") {
-				$table_name = "instructor";
-			} else {
-				echo "unknown UserType";
-			}
-			
-			$sql_user_email = "SELECT username as username ,email as email  FROM $table_name WHERE username='$username' OR email='$email'";
-			///$sql = "SELECT name as name,username as uname FROM users_table"; // Remember Upper Case SELECT and FROM.
-			return $this->query($sql_user_email);
-		}
-		
-		
-		public function get_question_from_DB($limit_val)
-		{
-			$table_name = "quiz_ques";
-			/** @noinspection SqlResolve */
-			$sql_get_question = "SELECT question as ques, opt_A as opt_1,opt_B as opt_2,opt_C as opt_3,opt_D as opt_4,corr_opt as cor_opt  FROM $table_name order by RAND()  limit $limit_val";
-			return $this->query($sql_get_question);
-		}
-		
-		
-		public function get_subject_categories_from_DB()
-		{
-			$table_name = "sub_category";
-			/** @noinspection SqlResolve */
-			$sql_cat = "SELECT sub_name as subject from $table_name order by sub_name asc ";
-			return $this->query($sql_cat);
-		}
-		
-		
-		public function get_course_file_filetype()
-		{
-			$table_name = "coursepdf";
-			
-			$sql = "SELECT filename as fname , ftype as ftype FROM $table_name ";//WHERE subid='CS-6001' ORDER by ID DESC ";
-			return $this->query($sql);
-		}
-		
-		
-		public function get_assignment_file_filetype()
-		{
-			$table_name = "assignment";
-			
-			$sql = "select assign_name as aname , filename  as fname, ftype as ftype from $table_name";
-			
-			//$sql = "SELECT filename as fname , ftype as ftype FROM $table_name ";//WHERE subid='CS-6001' ORDER by ID DESC ";
-			return $this->query($sql);
-		}
-		
 		
 		// Do not edit this Block
+		private function dbconnect()
+		{
+			
+			$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DB)
+			or die("<br/>Could not connect to MySQL server");
+			return $conn;
+			
+		}
 		
-		private function query($sql)
+		private function insert_query($sql)
+		{
+			$conn = $this->dbconnect();
+			$res = mysqli_query($conn, $sql);
+			$conn->close();
+			if ($res) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+		
+		private function select_query($sql)
 		{
 			
 			$conn = $this->dbconnect();
 			$res = mysqli_query($conn, $sql);
-			
-			
-			// This Code was maybe For Security  // Not useful for me anyway
-//			if ($res) {
-//				if (strpos($sql, 'SELECT') === false) {   // This is important
-//					return true;
-//				}
-//			} else {
-//				if (strpos($sql, 'SELECT') === false) {
-//					return false;
-//				} else {
-//					return null;
-//				}
-//			}
-//
 			
 			$results = array();
 			
@@ -174,17 +75,111 @@
 				}
 				$results[] = $result;
 			}
+			$conn->close();
 			return $results;
 		}
 		
-		private function dbconnect()
+		
+		//This block is for all select Queries only
+		public function login_check_student_in_DB($username, $password)
 		{
+			$table_name = "students";
+			$sql_user_pass = "SELECT username as username , password as pass,name as name,email as email  FROM $table_name WHERE username='$username' and password='$password'";
+			return $this->select_query($sql_user_pass);
+		}
+		
+		public function login_check_instructor_in_DB($username, $password)
+		{
+			$table_name = "instructor";
+			$sql_user_pass = "SELECT username as username , password as pass,name as name,email as email  FROM $table_name WHERE username='$username' and password='$password'";
+			return $this->select_query($sql_user_pass);
+		}
+		
+		public function signup_check_student_email_in_DB($username, $email)
+		{
+			$table_name = "students";
+			$sql_user_email = "SELECT username as username ,email as email  FROM $table_name WHERE username='$username' OR email='$email'";
+			return $this->select_query($sql_user_email);
 			
-			$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DB)
-			or die("<br/>Could not connect to MySQL server");
+		}
+		
+		public function signup_check_instructor_email_in_DB($username, $email)
+		{
+			$table_name = "instructor";
+			$sql_user_email = "SELECT username as username ,email as email  FROM $table_name WHERE username='$username' OR email='$email'";
+			return $this->select_query($sql_user_email);
 			
-			return $conn;
+		}
+		
+		public function check_username_email_in_DB($username, $email, $usertype)
+		{
+			$table_name = null;
+			if ($usertype === "student") {
+				$table_name = "students";
+			} else if ($usertype === "instructor") {
+				$table_name = "instructor";
+			} else {
+				echo "unknown UserType";
+			}
 			
+			$sql_user_email = "SELECT username as username ,email as email  FROM $table_name WHERE username='$username' OR email='$email'";
+			return $this->select_query($sql_user_email);
+		}
+		
+		
+		public function get_question_from_DB($limit_val)
+		{
+			$table_name = "quiz_ques";
+			$sql_get_question = "SELECT question as ques, opt_A as opt_1,opt_B as opt_2,opt_C as opt_3,opt_D as opt_4,corr_opt as cor_opt  FROM $table_name order by RAND()  limit $limit_val";
+			return $this->select_query($sql_get_question);
+		}
+		
+		
+		public function get_subject_categories_from_DB()
+		{
+			$table_name = "sub_category";
+			$sql_cat = "SELECT sub_name as subject from $table_name order by sub_name asc ";
+			return $this->select_query($sql_cat);
+		}
+		
+		
+		public function get_course_file_filetype()
+		{
+			$table_name = "coursepdf";
+			$sql = "SELECT filename as fname , ftype as ftype FROM $table_name ";//WHERE subid='CS-6001' ORDER by ID DESC ";
+			return $this->select_query($sql);
+		}
+		
+		
+		public function get_assignment_file_filetype()
+		{
+			$table_name = "assignment";
+			$sql = "select assign_name as aname , filename  as fname, ftype as ftype from $table_name";
+			return $this->select_query($sql);
+		}
+		
+		
+		//THis block is for insert queries only
+		
+		public function insert_signUpInstructor($name, $username, $email, $password)
+		{
+			$table_name = "instructor";
+			$sql_query = "Insert into $table_name values('$username','$email','$name','$password')";
+			return $this->insert_query($sql_query);
+		}
+		
+		public function insert_signUpStudent($name, $username, $email, $password, $checkPass, $section)
+		{
+			$table_name = "students";
+			$sql_query = "Insert into $table_name values('$username','$email','$name','$password','$section')";
+			return $this->insert_query($sql_query);
+		}
+		
+		public function insert_quiz_question($question, $opt_A, $opt_B, $opt_C, $opt_D, $correct, $subject)
+		{
+			$table_name = "quiz_ques";
+			$sql_query = "insert into $table_name(question,opt_A,opt_B,opt_C,opt_D,corr_opt) values('$question','$opt_A','$opt_B','$opt_C','$opt_D','$correct')";
+			return $this->insert_query($sql_query);
 		}
 		
 	}

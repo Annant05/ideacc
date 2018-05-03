@@ -1,12 +1,34 @@
 <?php
 	
-	require 'conf/connectdb.php';
-	require 'inc/customclass/SignUpClass.php';
 	require_once(dirname(__FILE__) . '/conf/config.php');
 	include('inc/class/SharedFunctions.php');
 	
-	session_start();
 	
+	function isUserValid($check_user_email, $_email, $_username)
+	{
+		if ($check_user_email) {  // Check if user Aleready Exists and notify
+			if (($check_user_email[0]->email === $_email) && ($check_user_email[0]->username === $_username)) {
+				$msg = "$_username Already Exists with Email: $_email ";
+				alert_only_out($msg);
+				return false;
+			} else if (($check_user_email[0]->username === $_username)) {
+				$msg = "$_username Already Exists";
+				alert_only_out($msg);
+				return false;
+			} else if (($check_user_email[0]->email === $_email)) {
+				$msg = "$_email Already Exists";
+				alert_only_out($msg);
+				return false;
+			} else {
+				return true;
+			}
+		}
+		return true;
+	}
+	
+	
+	session_start();
+	$dal = new DAL();
 	//$alert = $func->alert_only();
 	if (!empty($_POST)) {
 		$name = $_POST['name'];
@@ -17,52 +39,29 @@
 		$usertype = $_POST['usertype'];
 		$section = $_POST['section'];
 		
-		$dal = new DAL();
-		$signup = new signUpClass($connection);
-		
-		
-		function isUserValid($check_user_email, $_email, $_username)
-		{
-			if ($check_user_email) {  // Check if user Aleready Exists and notify
-				if (($check_user_email[0]->email === $_email) && ($check_user_email[0]->username === $_username)) {
-					$msg = "$_username Already Exists with Email: $_email ";
-					alert_only_out($msg);
-					return false;
-				} else if (($check_user_email[0]->username === $_username)) {
-					$msg = "$_username Already Exists";
-					alert_only_out($msg);
-					return false;
-				} else if (($check_user_email[0]->email === $_email)) {
-					$msg = "$_email Already Exists";
-					alert_only_out($msg);
-					return false;
-				} else {
-					//$msg = "UserCan be created";
-					//alert_only_out($msg);
-					return true;
+		if ($password === $confPass) {
+			
+			if ($usertype === "student") {
+				$result = $dal->signup_check_student_email_in_DB($username, $email);
+				if (isUserValid($result, $email, $username)) {
+					$dal->insert_signUpStudent($name, $username, $email, $password, $confPass, $section);
 				}
+			} else if ($usertype === "instructor") {
+				$result = $dal->signup_check_instructor_email_in_DB($username, $email);
+				if (isUserValid($result, $email, $username)) {
+					$dal->insert_signUpInstructor($name, $username, $email, $password);
+				}
+			} else {
+				$msg = "Something went Wrong in Signup.php";
+				alert_only_out($msg);
 			}
-			return true;
-		}
-		
-		if ($usertype === "student") {
-			$result = $dal->signup_check_student_email_in_DB($username, $email);
-			if (isUserValid($result, $email, $username)) {
-				$signup->signUpStudent($name, $username, $email, $password, $confPass, $section);
-			}
-		} else if ($usertype === "instructor") {
-			$result = $dal->signup_check_instructor_email_in_DB($username, $email);
-			if (isUserValid($result, $email, $username)) {
-				$signup->signUpInstructor($name, $username, $email, $password, $confPass);
-			}
+			$_SESSION['name'] = $username;
+			//sheader("Location:" . ROOT_URL . "/dashboard/index_ins.php");
+			//}
+			//$connection->close();
 		} else {
-			$msg = "Something went Wrong in Signup.php";
-			alert_only_out($msg);
+			alert_only_out("Password Mismatch");
 		}
-		$_SESSION['name'] = $username;
-		//sheader("Location:" . ROOT_URL . "/dashboard/index_ins.php");
-		//}
-		//$connection->close();
 	}
 ?>
 
