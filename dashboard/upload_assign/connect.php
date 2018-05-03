@@ -1,6 +1,6 @@
 <?php
-// Creating connection test is our database name
-$conn = new mysqli('localhost', 'root', 'ROOT','test');
+// Creating connection quiz is our database name
+$conn = new mysqli('localhost', 'root', 'ROOT','quiz');
 // Checking connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
