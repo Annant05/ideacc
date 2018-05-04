@@ -4,7 +4,7 @@
 	//TODO: Session handling Remaining;
 	
 	
-	require_once('../conf/config.php');
+	require_once('../../conf/config.php');
 	
 	$dal = new DAL();
 	$results = $dal->get_subject_categories_from_DB();
@@ -33,20 +33,20 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
 
     <!-- Bootstrap -->
-    <link type="text/css" rel="stylesheet" href="assets/css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="../assets/css/bootstrap.min.css"/>
 
     <!-- Owl Carousel -->
-    <link type="text/css" rel="stylesheet" href="assets/css/owl.carousel.css"/>
-    <link type="text/css" rel="stylesheet" href="assets/css/owl.theme.default.css"/>
+    <link type="text/css" rel="stylesheet" href="../assets/css/owl.carousel.css"/>
+    <link type="text/css" rel="stylesheet" href="../assets/css/owl.theme.default.css"/>
 
     <!-- Magnific Popup -->
-    <link type="text/css" rel="stylesheet" href="assets/css/magnific-popup.css"/>
+    <link type="text/css" rel="stylesheet" href="../assets/css/magnific-popup.css"/>
 
     <!-- Font Awesome Icon -->
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
 
     <!-- Custom stlylesheet -->
-    <link type="text/css" rel="stylesheet" href="assets/css/stylechoose.css"/>
+    <link type="text/css" rel="stylesheet" href="../assets/css/stylechoose.css"/>
 
 
 </head>
@@ -55,7 +55,7 @@
 <!-- Header -->
 <header id="home">
     <!-- Background Image -->
-    <div class="bg-img" style="background-image: url('./images/background2.jpg');">
+    <div class="bg-img" style="background-image: url('../images/background2.jpg');">
         <div class="overlay"></div>
     </div>
     <!-- /Background Image -->

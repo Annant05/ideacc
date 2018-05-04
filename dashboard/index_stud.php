@@ -2,11 +2,12 @@
 	require_once('../conf/config.php');
 	//include('../inc/class/SharedFunctions.php');
 	session_start();
+	/*
 	$usertype = $_SESSION['usertype'];
 	if ($usertype !== "student") {
 		alert_and_redirect("Please Log in", ROOT_URL . "/login.php");
 		//header("Location:" . ROOT_URL . "/index.html");
-	}
+	}*/
 	$name = $_SESSION['name'];
 	//$username = $_SESSION['username'];
 ?>
@@ -92,7 +93,7 @@
                         <img class="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar">
                     </a>
 
-                    
+
                     <div class="user-menu dropdown-menu">
                         <a class="nav-link" href="profile.php"><i class="fa fa- user"></i>My Profile</a>
 
@@ -132,7 +133,7 @@
 
         <div class="col-sm-12">
             <div class="alert  alert-success alert-dismissible fade show" role="alert">
-                </span> Welcome to the Accelerator Dashboard!
+                <span> Welcome to the Accelerator Dashboard!</span>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -146,87 +147,86 @@
 
 
         <!--/.col-->
-        <a onclick="location.href='course.php';" return false;>
-            <div class="col-sm-6 col-lg-3">
-                <div class="card text-white bg-flat-color-2">
-                    <div class="card-body pb-0">
-
+        <div class="col-sm-6 col-lg-3">
+            <div class="card text-white bg-flat-color-2">
+                <div class="card-body pb-0">
+                    <a onclick="location.href='view_course/choose_view_course.php';">
                         <h4 class="mb-0">
                             <span class="count">0</span>
                         </h4>
                         <p class="text-light">Active Courses</p>
                         <h4>View Courses</h4>
                         <br><br>
-                    </div>
+                    </a>
                 </div>
             </div>
+        </div>
 
-            <!--/.col-->
+        <!--/.col-->
 
-            <div class="col-sm-6 col-lg-3">
-                <div class="card text-white bg-flat-color-3">
-                    <div class="card-body pb-0">
-
+        <div class="col-sm-6 col-lg-3">
+            <div class="card text-white bg-flat-color-3">
+                <div class="card-body pb-0">
+                    <a onclick="location.href='view_assign/choose_view_assign.php';">
                         <h4 class="mb-0">
                             <span class="count">5</span>
                         </h4>
                         <p class="text-light">Active Assignments</p>
                         <h4>View Assignments</h4>
                         <br><br>
-
-                    </div>
-
-
+                    </a>
                 </div>
             </div>
-            <!--/.col-->
+        </div>
+        <!--/.col-->
 
 
-<!--            <a onClick="openPicker();" return false;>-->
+        <!--            <a onClick="openPicker();" return false;>-->
 
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card text-white bg-flat-color-4">
-                        <div class="card-body pb-0">
-                            <a onclick="location.href='test/showquiz.php';" return false;>
-                            <h4 class="mb-0">
-                                <span class="count">0</span>
-                            </h4>
-                            <p class="text-light">Active Quizzes</p>
-                            <h4>View Quizzes</h4>
-                            <br><br>
+        <div class="col-sm-6 col-lg-3">
+            <div class="card text-white bg-flat-color-4">
+                <div class="card-body pb-0">
+                    <a onclick="location.href='view_quiz/choose_view_quiz.php';">
+                        <h4 class="mb-0">
+                            <span class="count">0</span>
+                        </h4>
+                        <p class="text-light">Active Quizzes</p>
+                        <h4>View Quizzes</h4>
+                        <br><br>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-xl-3 col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="stat-widget-one">
+                        <div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i></div>
+                        <div class="stat-content dib">
+                            <div class="stat-text">Enrollments</div>
+                            <div class="stat-digit">121</div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
 
-
-                <div class="col-xl-3 col-lg-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="stat-widget-one">
-                                <div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i></div>
-                                <div class="stat-content dib">
-                                    <div class="stat-text">Enrollments</div>
-                                    <div class="stat-digit">121</div>
-                                </div>
-                            </div>
+        <div class="col-xl-3 col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="stat-widget-one">
+                        <div class="stat-icon dib"><i class="ti-layout-grid2 text-warning border-warning"></i>
+                        </div>
+                        <div class="stat-content dib">
+                            <div class="stat-text">Submitted</div>
+                            <div class="stat-digit">270</div>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-xl-3 col-lg-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="stat-widget-one">
-                                <div class="stat-icon dib"><i class="ti-layout-grid2 text-warning border-warning"></i>
-                                </div>
-                                <div class="stat-content dib">
-                                    <div class="stat-text">Submitted</div>
-                                    <div class="stat-digit">270</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            </div>
+        </div>
 
 
     </div> <!-- .content -->

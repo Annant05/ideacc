@@ -1,16 +1,14 @@
 <?php
 	require_once('../conf/config.php');
-	include('../inc/class/SharedFunctions.php');
-	
 	session_start();
+	/*
 	$usertype = $_SESSION['usertype'];
 	if ($usertype !== "instructor") {
 		alert_and_redirect("Please Log in",ROOT_URL . "/login.php");
 		//header("Location:" . ROOT_URL . "/index.html");
-	}
+	}*/
 	$name = $_SESSION['name'];
 	//$username = $_SESSION['username'];
-
 
 ?>
 
@@ -46,19 +44,19 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
-    <script src="https://static.filestackapi.com/v3/filestack.js"></script>
-    <script type="text/javascript">
-        var fsClient = filestack.init('AaQGrOEnUR1F2ai27mE6Pz');
-
-        function openPicker() {
-            fsClient.pick({
-                fromSources: ["local_file_system", "imagesearch", "facebook", "instagram", "dropbox"]
-            }).then(function (response) {
-                // declare this function to handle response
-                handleFilestack(response);
-            });
-        }
-    </script>
+    <!--    <script src="https://static.filestackapi.com/v3/filestack.js"></script>-->
+    <!--    <script type="text/javascript">-->
+    <!--        var fsClient = filestack.init('AaQGrOEnUR1F2ai27mE6Pz');-->
+    <!---->
+    <!--        function openPicker() {-->
+    <!--            fsClient.pick({-->
+    <!--                fromSources: ["local_file_system", "imagesearch", "facebook", "instagram", "dropbox"]-->
+    <!--            }).then(function (response) {-->
+    <!--                // declare this function to handle response-->
+    <!--                handleFilestack(response);-->
+    <!--            });-->
+    <!--        }-->
+    <!--    </script>-->
 
 </head>
 <body>
@@ -96,7 +94,6 @@
                     </a>
 
 
-                    <!-- TODO: Drop Down Menu Links not working -->
                     <div class="user-menu dropdown-menu">
                         <a class="nav-link" href="profile.php"><i class="fa fa- user"></i>My Profile</a>
 
@@ -121,6 +118,8 @@
                 </div>
             </div>
         </div>
+
+
         <div class="col-sm-8">
             <div class="page-header float-right">
                 <div class="page-title">
@@ -132,11 +131,12 @@
         </div>
     </div>
 
+
     <div class="content mt-3">
 
         <div class="col-sm-12">
             <div class="alert  alert-success alert-dismissible fade show" role="alert">
-                </span> Welcome to the Accelerator Dashboard!
+                <span> Welcome to the Accelerator Dashboard!</span>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -144,43 +144,36 @@
         </div>
 
 
-        <!---<input type="file" id="upload" name="upload" style="visibility: hidden; width: 1px; height: 1px" multiple />
-<a href="" onclick="document.getElementById('upload').click(); return false">
-   -->
-        <a onClick="openPicker();" return false;>
-            <div class="col-sm-6 col-lg-3">
-                <div class="card text-white bg-flat-color-1">
-                    <div class="card-body pb-0">
-
+        <div class="col-sm-6 col-lg-3">
+            <div class="card text-white bg-flat-color-1">
+                <div class="card-body pb-0">
+                    <a onclick="location.href='upload_course/choose_upl_course.php';">
                         <h4 class="mb-0">
                             <span class="count">0</span>
                         </h4>
                         <p class="text-light">Active Courses</p>
-
                         <h4>Upload Courses</h4>
-                        <!--<input type="file" name="fileToUpload" id="fileToUpload">
-                        
--->                     <br><br>
-
-                    </div>
-
+                        <br><br>
+                    </a>
                 </div>
             </div>
-        </a>
+        </div>
 
 
         <!--/.col-->
 
+
         <div class="col-sm-6 col-lg-3">
             <div class="card text-white bg-flat-color-2">
                 <div class="card-body pb-0">
-
-                    <h4 class="mb-0">
-                        <span class="count">0</span>
-                    </h4>
-                    <p class="text-light">Active Courses</p>
-                    <h4>View Courses</h4>
-                    <br><br>
+                    <a onclick="location.href='view_course/choose_view_course.php';">
+                        <h4 class="mb-0">
+                            <span class="count">0</span>
+                        </h4>
+                        <p class="text-light">Active Courses</p>
+                        <h4>View Courses</h4>
+                        <br><br>
+                    </a>
                 </div>
             </div>
         </div>
@@ -190,138 +183,141 @@
         <div class="col-sm-6 col-lg-3">
             <div class="card text-white bg-flat-color-3">
                 <div class="card-body pb-0">
-
-                    <h4 class="mb-0">
-                        <span class="count">5</span>
-                    </h4>
-                    <p class="text-light">Active Assignments</p>
-                    <h4>View Assignments</h4>
-                    <br><br>
-
+                    <a onclick="location.href='view_assign/choose_view_assign.php';">
+                        <h4 class="mb-0">
+                            <span class="count">5</span>
+                        </h4>
+                        <p class="text-light">Active Assignments</p>
+                        <h4>View Assignments</h4>
+                        <br><br>
+                    </a>
                 </div>
-
-
             </div>
         </div>
         <!--/.col-->
-        <a onClick="openPicker();" return false;>
-            <div class="col-sm-6 col-lg-3">
-                <div class="card text-white bg-flat-color-4">
-                    <div class="card-body pb-0">
 
+
+        <div class="col-sm-6 col-lg-3">
+            <div class="card text-white bg-flat-color-4">
+                <div class="card-body pb-0">
+                    <a onclick="location.href='upload_assign/choose_upl_assign.php';">
                         <h4 class="mb-0">
                             <span class="count">5</span>
                         </h4>
                         <p class="text-light">Active Assignments</p>
                         <h4>Upload Assignments</h4>
                         <br><br>
-
-
-                    </div>
+                    </a>
                 </div>
             </div>
-            <a onClick="openPicker();" return false;>
+        </div>
 
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card text-white bg-flat-color-4">
-                        <div class="card-body pb-0">
+        <div class="col-sm-6 col-lg-3">
+            <div class="card text-white bg-flat-color-4">
+                <div class="card-body pb-0">
+                    <a onclick="location.href='view_quiz/choose_view_quiz.php';">
+                        <h4 class="mb-0">
+                            <span class="count">0</span>
+                        </h4>
+                        <p class="text-light">Active Quizzes</p>
+                        <h4>View Quizzes</h4>
+                        <br><br>
+                    </a>
+                </div>
+            </div>
+        </div>
 
+
+        <!--                <a onclick="location.href='https://www.google.com';" return false;></a>-->
+        
+            <div class="col-sm-6 col-lg-3">
+                <div class="card text-white bg-flat-color-2">
+                    <div class="card-body pb-0">
+                        <a onclick="location.href='upload_quiz/choose_upl_quiz.php';">
                             <h4 class="mb-0">
                                 <span class="count">0</span>
                             </h4>
                             <p class="text-light">Active Quizzes</p>
-                            <h4>View Quizzes</h4>
+                            <h4>Upload Quizzes</h4>
                             <br><br>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-xl-3 col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="stat-widget-one">
+                            <div class="stat-icon dib"><i class="ti-money text-success border-success"></i>
+                            </div>
+                            <div class="stat-content dib">
+                                <div class="stat-text">Revenue</div>
+                                <div class="stat-digit">55</div>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
 
-                <!--                <a onclick="location.href='https://www.google.com';" return false;></a>-->
-                <a onclick="location.href='course.php';" return false;>
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="card text-white bg-flat-color-2">
-                            <div class="card-body pb-0">
-
-                                <h4 class="mb-0">
-                                    <span class="count">0</span>
-                                </h4>
-                                <p class="text-light">Active Quizzes</p>
-                                <h4>Upload Courses</h4>
-                                <br><br>
+            <div class="col-xl-3 col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="stat-widget-one">
+                            <div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i></div>
+                            <div class="stat-content dib">
+                                <div class="stat-text">Enrollments</div>
+                                <div class="stat-digit">121</div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-one">
-                                    <div class="stat-icon dib"><i class="ti-money text-success border-success"></i>
-                                    </div>
-                                    <div class="stat-content dib">
-                                        <div class="stat-text">Revenue</div>
-                                        <div class="stat-digit">55</div>
-                                    </div>
-                                </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="stat-widget-one">
+                            <div class="stat-icon dib"><i
+                                        class="ti-layout-grid2 text-warning border-warning"></i>
+                            </div>
+                            <div class="stat-content dib">
+                                <div class="stat-text">Submitted</div>
+                                <div class="stat-digit">270</div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
 
-
-                    <div class="col-xl-3 col-lg-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-one">
-                                    <div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i></div>
-                                    <div class="stat-content dib">
-                                        <div class="stat-text">Enrollments</div>
-                                        <div class="stat-digit">121</div>
-                                    </div>
-                                </div>
+            <div class="col-xl-3 col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="stat-widget-one">
+                            <div class="stat-icon dib"><i
+                                        class="ti-layout-grid2 text-warning border-warning"></i>
+                            </div>
+                            <div class="stat-content dib">
+                                <div class="stat-text">Pending</div>
+                                <div class="stat-digit">112</div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-xl-3 col-lg-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-one">
-                                    <div class="stat-icon dib"><i
-                                                class="ti-layout-grid2 text-warning border-warning"></i>
-                                    </div>
-                                    <div class="stat-content dib">
-                                        <div class="stat-text">Submitted</div>
-                                        <div class="stat-digit">270</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xl-3 col-lg-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-one">
-                                    <div class="stat-icon dib"><i
-                                                class="ti-layout-grid2 text-warning border-warning"></i>
-                                    </div>
-                                    <div class="stat-content dib">
-                                        <div class="stat-text">Pending</div>
-                                        <div class="stat-digit">112</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                </div>
+            </div>
 
 
     </div> <!-- .content -->
 </div><!-- /#right-panel -->
 
 <!-- Right Panel -->
-<script>$("#btnfile").click(function () {
-        $("#uploadfile").click();
-    });</script>
+<!--<script>$("#btnfile").click(function () {-->
+<!--        $("#uploadfile").click();-->
+<!--    });</script>-->
+
+
 <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
 <script src="assets/js/plugins.js"></script>
