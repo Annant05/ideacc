@@ -1,14 +1,14 @@
 <?php
 	
-	require_once(dirname(dirname(__FILE__)) . '/inc/class/DAL.php');
-	require_once(dirname(dirname(__FILE__)) . '/inc/class/SharedFunctions.php');
-	
 	/**
 	 * Created by PhpStorm.
 	 * User: root
 	 * Date: 27/4/18
 	 * Time: 10:21 PM
 	 */
+	
+	require_once(dirname(dirname(__FILE__)) . '/inc/class/DAL.php');
+	require_once(dirname(dirname(__FILE__)) . '/inc/class/SharedFunctions.php');
 	
 	
 	//The Following URL needs to changed when used on local connections
@@ -20,6 +20,6 @@
 	define('DB_DB', 'acc');
 	define('BR', "<BR>");
 	define('ROOT_URL', "http://localhost/ideacc");
-
-
+	define('INSTRUCTOR', "instructor");
+	define('STUDENT', "student");
 ?>

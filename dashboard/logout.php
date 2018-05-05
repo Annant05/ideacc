@@ -7,13 +7,12 @@
 	 */
 	
 	require_once('../conf/config.php');
-	include('../inc/class/SharedFunctions.php');
 	
 	session_start();
 	session_unset();
 	session_destroy();
 	ob_start();
-	alert_and_redirect("SuccessFully Logged Out",ROOT_URL . "/index.html");
+	alert_and_redirect("SuccessFully Logged Out", ROOT_URL . "/index.html");
 	
 	//header("Location:" . ROOT_URL . "/login.php");
 	exit();

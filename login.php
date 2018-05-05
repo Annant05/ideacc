@@ -1,7 +1,6 @@
 <?php
-	//require 'connectdb.php';
+	//TODO: Try to implement Cookies
 	require_once(dirname(__FILE__) . '/conf/config.php');
-	include('inc/class/SharedFunctions.php');
 	
 	session_start();
 	$dal = new DAL();
@@ -11,40 +10,49 @@
 		$password = md5($_POST['pass']);
 		$usertype = $_POST['usertype'];
 		
+		$results = login_user_check($username, $password);
 		
-		if ($usertype === "student") {
-			$results = $dal->login_check_student_in_DB($username, $password);
-		} else if ($usertype === "instructor") {
-			$results = $dal->login_check_instructor_in_DB($username, $password);
-		} else {
-			$msg = "Something went Wrong in Signup.php";
-			alert_only_out($msg);
-		}
-		
-		
-		//echo BR;
 		if ($results) {
 			if (($results[0]->username === $username) && ($results[0]->pass === $password)) {
-				//echo BR . "Evrythin is fine";
 				$_SESSION['name'] = $results[0]->name;
-				
-				if ($usertype === "student") {
-					$_SESSION['usertype'] = "student";
-					header("Location:" . ROOT_URL . "/dashboard/index_stud.php");
-				} else if ($usertype === "instructor") {
-					$_SESSION['usertype'] = "instructor";
-					header("Location:" . ROOT_URL . "/dashboard/index_ins.php");
-				}
-				
-				//header("Location:" . ROOT_URL . "/dashboard/index_ins.php");
-//				$_SESSION['name'] = $username;
+				go_to_next_page();
 			}
 		} else {
-		    $msg = "Username or Password Wrong";
+			$msg = "Username or Password Wrong";
 			alert_only_out($msg);
 		}
 		
 	}
+	
+	
+	function go_to_next_page()
+	{
+		global $usertype;
+		if ($usertype === STUDENT) {
+			$_SESSION['usertype'] = "student";
+			header("Location:" . ROOT_URL . "/dashboard/index_stud.php");
+		} else if ($usertype === INSTRUCTOR) {
+			$_SESSION['usertype'] = "instructor";
+			header("Location:" . ROOT_URL . "/dashboard/index_ins.php");
+		}
+	}
+	
+	
+	function login_user_check($username, $password)
+	{
+		global $usertype, $dal;
+		if ($usertype === STUDENT) {
+			return $dal->login_check_student_in_DB($username, $password);
+		} else if ($usertype === INSTRUCTOR) {
+			return $dal->login_check_instructor_in_DB($username, $password);
+		} else {
+			$msg = "Something went Wrong in Signup.php";
+			alert_only_out($msg);
+			return false;
+		}
+		
+	}
+
 
 ?>
 
@@ -105,7 +113,7 @@
                 </div>
 
                 <div>
-                    <label> <input type='radio' name='usertype' value='student' required> Student</label>
+                    <label> <input type='radio' name='usertype' value='student' required checked> Student</label>
                     <label> <input style="margin-left: 20px" type='radio' name='usertype' value='instructor' required>
                         Instructor </label>
                 </div>

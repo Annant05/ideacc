@@ -1,8 +1,6 @@
 <?php
 	
 	require_once(dirname(__FILE__) . '/conf/config.php');
-	include('inc/class/SharedFunctions.php');
-	
 	
 	function isUserValid($check_user_email, $_email, $_username)
 	{
@@ -41,12 +39,12 @@
 		
 		if ($password === $confPass) {
 			
-			if ($usertype === "student") {
+			if ($usertype === STUDENT) {
 				$result = $dal->signup_check_student_email_in_DB($username, $email);
 				if (isUserValid($result, $email, $username)) {
 					$dal->insert_signUpStudent($name, $username, $email, $password, $confPass, $section);
 				}
-			} else if ($usertype === "instructor") {
+			} else if ($usertype === INSTRUCTOR) {
 				$result = $dal->signup_check_instructor_email_in_DB($username, $email);
 				if (isUserValid($result, $email, $username)) {
 					$dal->insert_signUpInstructor($name, $username, $email, $password);
@@ -122,16 +120,6 @@
                     <span class="focus-input100" data-placeholder="Email"></span>
                 </div>
 
-                <!--div class="form-group">
-					<label for="sel1">Select Class</label>
-					<select class="form-control" id="sel1">
-						<option>CS</option>
-						<option>IT</option>
-						<option>EC</option>
-						<option>CE</option>
-						<option>ME</option>
-					</select>
-				</div-->
 
                 <div class="wrap-input100 validate-input" data-validate="Incorrect Username">
                     <input class="input100" type="text" name="username" required>
@@ -162,7 +150,7 @@
                 </div>
 
                 <div class="form-group" style="margin-bottom: 20px ;margin-top: 10px">
-                    <label>Select Section</label>
+                    <label for="section">Select Section</label>
                     <select id="section" name="section">
                         <option value="CS-1">CS-1</option>
                         <option value="CS-2">CS-2</option>

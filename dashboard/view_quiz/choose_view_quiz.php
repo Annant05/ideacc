@@ -1,21 +1,21 @@
 <?php
 	
-    //Dynamically showing Subject category //
+	//Dynamically showing Subject category //
 	//TODO: Session handling Remaining;
-	
-	
 	require_once('../../conf/config.php');
+	session_start();
+	check_user_is_loggedin();
 	
 	$dal = new DAL();
 	$results = $dal->get_subject_categories_from_DB();
-	
-	if ($results) {
-		$resarray = $results;
-	} else {
-		echo "Something Wrong";
+	if (!empty($_POST)) {
+		$_SESSION['sub_cat'] = $_POST['sub_cat'];
+		header("location:" . ROOT_URL . "/dashboard/view_quiz/view_quiz.php");
 	}
-//TODO : SEPERATE SESSION FOR USER AND INSTRUCTOR
-//
+	
+	
+	//TODO : SEPERATE SESSION FOR USER AND INSTRUCTOR
+	//
 
 ?>
 
@@ -72,25 +72,19 @@
                         <h1 class="white-text">You are all set to start!</h1>
                         <p class="white-text"> Select the type of quiz you want to get started with...
                         </p>
-                        <!--<select class="white-btn">Choose Quiz-->
-                        <!--<option>Physics</option>-->
-                        <!--<option>Life Sciences</option>-->
-                        <!--<option>General Knowledge</option>-->
-                        <!--<option>English</option>-->
-                        <!--</select>-->
-                        <!---->
-						<?php echo '<select class="white-btn" id = "sub_cat" name ="sub_cat">';
-							foreach ($resarray as $sub) {
-								//$sub = array('ACA','DBMS');
-								//for($i = 0;$i<2;$i++){
-								echo '<option value="' . $sub->subject . '">' . $sub->subject . '</option>';
-							}
-							echo '</select>';
-						?>
-
-                        <button class="main-btn">Kick Start!</button>
-
-
+                        <form method="post" name="select_cat">
+							<?php
+								if ($results) {
+									echo '<select class="white-btn" id = "sub_cat" name ="sub_cat">';
+									echo '<option value="nothing">' . "Select Subject" . '</option>';
+									foreach ($results as $sub) {
+										echo '<option value="' . $sub->subject . '">' . $sub->subject . '</option>';
+									}
+									echo '</select>';
+								}
+							?>
+                            <button type="submit" class="main-btn">Kick Start!</button>
+                        </form>
                     </div>
                 </div>
                 <!-- /home content -->
