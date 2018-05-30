@@ -12,8 +12,6 @@
 		$_SESSION['sub_cat'] = $_POST['sub_cat'];
 		header("location:" . ROOT_URL . "/dashboard/view_quiz/view_quiz.php");
 	}
-	
-	
 	//TODO : SEPERATE SESSION FOR USER AND INSTRUCTOR
 	//
 
